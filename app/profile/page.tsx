@@ -1,9 +1,14 @@
 "use client";
 
+import type { Metadata } from "next"; 
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+
+export const metadata: Metadata = {
+    title: "Profil | Digital Library SD Solafide",
+}
 
 export default function ProfilePage() {
     const searchParams = useSearchParams();
