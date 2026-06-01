@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Open_Sans } from "next/font/google";
 import { Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
 
 const openSans = Open_Sans({
     subsets: ["latin"],
@@ -162,14 +163,22 @@ export default function LoginForm() {
                 <div className="flex flex-col sm:flex-row gap-6 mt-1">
 
                     {/* Daftar di kiri */}
-                    <button className="w-full h-[50px] lg:h-[60px] rounded-xl bg-[#2B87DA] text-white text-lg lg:text-[20px] font-medium transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]">
-                    Daftar
-                    </button>
+                    <Link 
+                        href="/homepage" 
+                        className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium flex items-center
+                            justify-center transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]"
+                    >
+                        Daftar
+                    </Link>
 
                     {/* Masuk di kanan */}
-                    <button className="w-full h-[50px] lg:h-[60px] rounded-xl bg-[#2B87DA] text-white text-lg lg:text-[20px] font-medium transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]">
-                    Masuk
-                    </button>
+                    <Link
+                        href="/login"
+                        className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium flex items-center
+                            justify-center transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]"
+                    >
+                        Masuk
+                    </Link>
 
                 </div>
             </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Open_Sans } from "next/font/google";
 import { Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
 
 const openSans = Open_Sans({
     subsets: ["latin"],
@@ -83,13 +84,21 @@ export default function LoginForm() {
 
                 {/* Buttons */}
                 <div className="flex gap-8 mt-10">
-                    <button className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]">
+                    <Link
+                        href="/homepage"
+                        className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium flex items-center
+                            justify-center transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]"
+                    >
                         Masuk
-                    </button>
+                    </Link>
 
-                    <button className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]">
+                    <Link 
+                        href="/register" 
+                        className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium flex items-center
+                            justify-center transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]"
+                    >
                         Daftar
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -10,10 +10,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "Beranda | Digital Library SD Solafide",
+    title: "E-Book | Digital Library SD Solafide",
 };
 
-export default function UserPage() {
+export default function EbookPage() {
     return (
         <div className="min-h-screen bg-[#F3F3F3]">
 
@@ -31,14 +31,14 @@ export default function UserPage() {
             />
             </div>
 
-            {/* BOOK SECTION */}
+            {/* EBOOK SECTION */}
 
             <section className="bg-white border border-[#F3F3F3] mb-8">
 
             <div className="flex justify-between items-center px-6 py-4">
 
                 <h2 className="text-[28px] font-bold">
-                KOLEKSI BUKU
+                E-BOOK
                 </h2>
 
                 <button className="text-[#2B87DA] text-sm">
@@ -52,38 +52,38 @@ export default function UserPage() {
                 <HorizontalSlider>
 
                     <BookCard
+                    title="Dongeng Pangeran Katak"
+                    image="/ebooks/dongeng-pangeran-katak.png"
+                    />
+
+                    <BookCard
+                    title="Kisah Sebuah Pohon"
+                    image="/ebooks/kisah-sebuah-pohon.png"
+                    />
+
+                    <BookCard
                     title="Kisah Rumah Pohon"
-                    image="/buku/kisah-rumah-pohon.png"
+                    image="/ebooks/kisah-rumah-pohon.png"
                     />
 
                     <BookCard
-                    title="Mudah Bicara Bahasa Inggris"
-                    image="/buku/mudah-bicara-bahasa-inggris.jpg"
-                    />
-
-                    <BookCard
-                    title="Matematika Dasar Jilid 1"
-                    image="/buku/matematika-dasar-jilid-1.webp"
-                    />
-
-                    <BookCard
-                    title="Ayahku Pahlawanku"
-                    image="/buku/ayahku-pahlawanku.png"
+                    title="300 Kisah Binatang"
+                    image="/ebooks/300-kisah-binatang.png"
                     />
 
                     <BookCard
                     title="Perjalanan Angsa Putih"
-                    image="/buku/perjalanan-angsa-putih.png"
+                    image="/ebooks/perjalanan-angsa-putih.png"
                     />
 
                     <BookCard
                     title="Perjalanan Angsa Putih"
-                    image="/buku/perjalanan-angsa-putih.png"
+                    image="/ebooks/perjalanan-angsa-putih.png"
                     />
 
                     <BookCard
                     title="Perjalanan Angsa Putih"
-                    image="/buku/perjalanan-angsa-putih.png"
+                    image="/ebooks/perjalanan-angsa-putih.png"
                     />
 
                 </HorizontalSlider>
@@ -123,27 +123,27 @@ export default function UserPage() {
 
                     <CategoryCard
                     title="Matematika"
-                    image="/kategori/matematika-2.png"
+                    image="/kategori/matematika.png"
                     />
 
                     <CategoryCard
                     title="Novel"
-                    image="/kategori/novel-2.png"
+                    image="/kategori/novel.png"
                     />
 
                     <CategoryCard
                     title="Sejarah"
-                    image="/kategori/sejarah-2.jpg"
+                    image="/kategori/sejarah.jpg"
                     />
 
                     <CategoryCard
                     title="Sejarah"
-                    image="/kategori/sejarah-2.jpg"
+                    image="/kategori/sejarah.jpg"
                     />
 
                     <CategoryCard
                     title="Sejarah"
-                    image="/kategori/sejarah-2.jpg"
+                    image="/kategori/sejarah.jpg"
                     />
 
                 </HorizontalSlider>

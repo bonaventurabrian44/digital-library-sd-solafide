@@ -1,4 +1,9 @@
+import type { Metadata } from "next"; 
 import RegisterForm from "../../components/RegisterForm";
+
+export const metadata: Metadata = {
+    title: "Daftar | Digital Library SD Solafide",
+}
 
 export default function RegisterPage() {
     return (
