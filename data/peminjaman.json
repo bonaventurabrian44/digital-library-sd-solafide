@@ -1,0 +1,41 @@
+[
+    {
+        "id_pinjam": 1,
+        "id_siswa": 1,
+        "tanggal_pinjam": "2026-06-01",
+        "tanggal_jatuh_tempo": "2026-06-08",
+        "status": "dipinjam",
+        "detail": [
+        {
+            "id_detail": 1,
+            "id_buku": 1,
+            "jumlah": 1,
+            "tanggal_kembali": null,
+            "status": "dipinjam"
+        },
+        {
+            "id_detail": 2,
+            "id_buku": 2,
+            "jumlah": 1,
+            "tanggal_kembali": null,
+            "status": "dipinjam"
+        }
+        ]
+    },
+    {
+        "id_pinjam": 2,
+        "id_siswa": 2,
+        "tanggal_pinjam": "2026-05-20",
+        "tanggal_jatuh_tempo": "2026-05-27",
+        "status": "kembali",
+        "detail": [
+        {
+            "id_detail": 3,
+            "id_buku": 4,
+            "jumlah": 1,
+            "tanggal_kembali": "2026-05-25",
+            "status": "kembali"
+        }
+        ]
+    }
+]

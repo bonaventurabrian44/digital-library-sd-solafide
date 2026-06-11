@@ -76,6 +76,18 @@ export default function LoginForm() {
                     </div>
                 </div>
 
+                {/* NIS */}
+                <div className="mb-5">
+                    <label className="block text-[20px] mb-3 text-black">
+                    NIS
+                    </label>
+
+                    <input
+                    type="text"
+                    className="w-full h-46px] lg:h-[46px] rounded-xl bg-white px-4 text-lg lg:text-xl outline-none border border-[#F80000]/20"
+                    />
+                </div>
+
                 {/* Email Orang Tua */}
                 <div className="mb-5">
                     <label className="block text-[20px] mb-3 text-black">
@@ -164,7 +176,7 @@ export default function LoginForm() {
 
                     {/* Daftar di kiri */}
                     <Link 
-                        href="/homepage" 
+                        href="/user" 
                         className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium flex items-center
                             justify-center transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]"
                     >

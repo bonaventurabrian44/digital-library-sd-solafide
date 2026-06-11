@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Navbar from "../../components/Navbar";
-import BookCard from "../../components/BookCard";
-import CategoryCard from "../../components/CategoryCard";
-import HorizontalSlider from "../../components/HorizontalSlider";
+import HomeMenuCard from "../../components/HomeMenuCard";
+import StatusCard from "../../components/StatusCard";
+import RecommendationCard from "../../components/RecommendationCard";
+import Footer from "../../components/Footer";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -16,142 +17,75 @@ export const metadata: Metadata = {
 export default function UserPage() {
     return (
         <div className="min-h-screen bg-[#F3F3F3]">
+            <Navbar />
 
-        <Navbar />
+            <div className={`${inter.className} w-[86%] mx-auto py-8`}>
 
-        <div className={`${inter.className} w-[86%] mx-auto py-8`}>
+                {/* Welcome */}
+                <h1 className="text-[42px] font-bold mb-8">
+                SELAMAT DATANG,{" "}
+                <span className="text-[#2B87DA]">USER!</span>
+                </h1>
 
-            {/* SEARCH */}
+                <div className="w-full h-[1px] bg-black my-6"></div>
 
-            <div className="flex justify-end mb-6">
-            <input
-                type="text"
-                placeholder="Search"
-                className="w-[280px] h-[40px] border border-gray-400 px-4 bg-white"
-            />
-            </div>
+                {/* Top Section */}
+                <div className="flex justify-between items-start mb-12">
 
-            {/* BOOK SECTION */}
+                    {/* LEFT */}
+                    <div className="flex gap-6">
 
-            <section className="bg-white border border-[#F3F3F3] mb-8">
+                        <HomeMenuCard
+                        title="KOLEKSI BUKU"
+                        image="/homepage/bookshelf.png"
+                        buttonText="LIHAT BUKU"
+                        bgColor="bg-[#1E88E5]"
+                        href="/books"
+                        />
 
-            <div className="flex justify-between items-center px-6 py-4">
+                        <HomeMenuCard
+                        title="E-BOOK"
+                        image="/homepage/ebook.png"
+                        buttonText="JELAJAHI"
+                        bgColor="bg-[#F7931E]"
+                        href="/ebook"
+                        />
 
-                <h2 className="text-[28px] font-bold">
-                KOLEKSI BUKU
-                </h2>
+                    </div>
 
-                <button className="text-[#2B87DA] text-sm">
-                LIHAT SEMUA &gt;&gt;
-                </button>
+                    {/* RIGHT */}
+                    <StatusCard />
 
-            </div>
+                </div>
 
-            <div className="border-t border-[#F3F3F3]">
+                {/* Recommendation */}
+                <div>
 
-                <HorizontalSlider>
+                <div className="flex items-center gap-4 mb-6">
 
-                    <BookCard
-                    title="Kisah Rumah Pohon"
-                    image="/buku/kisah-rumah-pohon.png"
-                    />
+                    <h2 className="font-bold text-[28px] whitespace-nowrap">
+                    REKOMENDASI BUKU UNTUK KAMU
+                    </h2>
 
-                    <BookCard
-                    title="Mudah Bicara Bahasa Inggris"
-                    image="/buku/mudah-bicara-bahasa-inggris.jpg"
-                    />
+                    <div className="h-[1px] bg-black w-full"></div>
 
-                    <BookCard
-                    title="Matematika Dasar Jilid 1"
-                    image="/buku/matematika-dasar-jilid-1.webp"
-                    />
+                </div>
 
-                    <BookCard
-                    title="Ayahku Pahlawanku"
-                    image="/buku/ayahku-pahlawanku.png"
-                    />
+                <div className="flex justify-center gap-6">
 
-                    <BookCard
-                    title="Perjalanan Angsa Putih"
-                    image="/buku/perjalanan-angsa-putih.png"
-                    />
+                    <RecommendationCard />
+                    <RecommendationCard />
+                    <RecommendationCard />
+                    <RecommendationCard />
+                    <RecommendationCard />
 
-                    <BookCard
-                    title="Perjalanan Angsa Putih"
-                    image="/buku/perjalanan-angsa-putih.png"
-                    />
+                </div>
 
-                    <BookCard
-                    title="Perjalanan Angsa Putih"
-                    image="/buku/perjalanan-angsa-putih.png"
-                    />
-
-                </HorizontalSlider>
-            </div>
-            
-            </section>
-
-            {/* KATEGORI SECTION */}
-
-            <section className="bg-white border border-[#F3F3F3]">
-
-            <div className="flex justify-between items-center px-6 py-4">
-
-                <h2 className="text-[28px] font-bold">
-                KATEGORI
-                </h2>
-
-                <button className="text-[#2B87DA] text-sm">
-                LIHAT SEMUA &gt;&gt;
-                </button>
+                </div>
 
             </div>
 
-            <div className="border-t border-[#F3F3F3]">
-
-                <HorizontalSlider>
-
-                    <CategoryCard
-                    title="Bahasa Inggris"
-                    image="/kategori/inggris.jpg"
-                    />
-
-                    <CategoryCard
-                    title="Ilmu Pengetahuan Alam"
-                    image="/kategori/ipa.png"
-                    />
-
-                    <CategoryCard
-                    title="Matematika"
-                    image="/kategori/matematika-2.png"
-                    />
-
-                    <CategoryCard
-                    title="Novel"
-                    image="/kategori/novel-2.png"
-                    />
-
-                    <CategoryCard
-                    title="Sejarah"
-                    image="/kategori/sejarah-2.jpg"
-                    />
-
-                    <CategoryCard
-                    title="Sejarah"
-                    image="/kategori/sejarah-2.jpg"
-                    />
-
-                    <CategoryCard
-                    title="Sejarah"
-                    image="/kategori/sejarah-2.jpg"
-                    />
-
-                </HorizontalSlider>
-            </div>
-
-            </section>
-
-        </div>
+            <Footer />
         </div>
     );
 }

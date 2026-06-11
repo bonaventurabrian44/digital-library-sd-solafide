@@ -1,18 +1,14 @@
 "use client";
 
-import type { Metadata } from "next"; 
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "../../components/Navbar";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-
-export const metadata: Metadata = {
-    title: "Profil | Digital Library SD Solafide",
-}
 
 export default function ProfilePage() {
     const searchParams = useSearchParams();
     const [activeMenu, setActiveMenu] = useState("profil");
+    const [showEditModal, setShowEditModal] = useState(false);
 
     useEffect(() => {
         const menu = searchParams.get("menu");
@@ -37,13 +33,17 @@ export default function ProfilePage() {
                             onClick={() => setActiveMenu("profil")}
                             className={`
                                 w-full
+                                flex
+                                items-center
                                 text-left
-                                px-4
+                                gap-3
+                                px-2
                                 py-3
-                                rounded-full
-                                font-medium
+                                rounded-md
+                                font-semibold
                                 transition-all
                                 mb-3
+                                cursor-pointer
                                 ${
                                     activeMenu === "profil"
                                         ? "bg-[#DCEEFF] text-[#2B87DA]"
@@ -51,19 +51,28 @@ export default function ProfilePage() {
                                 }
                             `}
                         >
-                            Profil Saya
+                            <img
+                                src="/icons/resume.png"
+                                alt="Profil"
+                                className="w-5 h-5 object-contain"
+                            />
+                            <span>Profil Saya</span>
                         </button>
 
                         <button
                             onClick={() => setActiveMenu("riwayat")}
                             className={`
                                 w-full
+                                flex
+                                items-center
                                 text-left
-                                px-4
+                                gap-3
+                                px-2
                                 py-3
-                                rounded-full
-                                font-medium
+                                rounded-md
+                                font-semibold
                                 transition-all
+                                cursor-pointer
                                 ${
                                     activeMenu === "riwayat"
                                         ? "bg-[#DCEEFF] text-[#2B87DA]"
@@ -71,7 +80,12 @@ export default function ProfilePage() {
                                 }
                             `}
                         >
-                            Riwayat Peminjaman
+                            <img
+                                src="/icons/lists.png"
+                                alt="Profil"
+                                className="w-5 h-5 object-contain"
+                            />
+                            <span>Riwayat Peminjaman</span>
                         </button>
 
                     </div>
@@ -94,8 +108,14 @@ export default function ProfilePage() {
                                 items-center
                                 justify-center
                                 block
+                                gap-2
                             "
                         >
+                            <img
+                                src="/icons/logout.png"
+                                alt="Edit"
+                                className="w-5 h-5 object-contain invert"
+                            />
                             Keluar
                         </Link>
 
@@ -108,9 +128,9 @@ export default function ProfilePage() {
 
                     {/* PROFIL */}
                     {activeMenu === "profil" && (
-                        <div className="bg-white rounded-xl shadow-sm p-8">
+                        <div className="bg-white rounded-xl shadow-sm p-8 flex gap-10">
 
-                            <div className="flex gap-10">
+                            <div className="flex flex-col items-center gap-4">
 
                                 {/* FOTO */}
                                 <img
@@ -126,49 +146,77 @@ export default function ProfilePage() {
                                     "
                                 />
 
-                                {/* DATA */}
-                                <div className="flex flex-col gap-5">
+                                <button
+                                    onClick={() => setShowEditModal(true)}
+                                    className="
+                                        w-full
+                                        bg-[#2B87DA]
+                                        text-white
+                                        py-2.5
+                                        rounded-lg
+                                        font-medium
+                                        transition-all
+                                        hover:bg-[#236fb4]
+                                        cursor-pointer
 
-                                    <div>
-                                        <p className="text-gray-500">
-                                            Nama Siswa
-                                        </p>
+                                        flex
+                                        items-center
+                                        justify-center
+                                        gap-2
+                                    "
+                                >
+                                    <img
+                                        src="/icons/edit.png"
+                                        alt="Edit"
+                                        className="w-4 h-4 invert"
+                                    />
 
-                                        <p className="font-semibold text-lg">
-                                            Mas Bahlil
-                                        </p>
-                                    </div>
+                                    <span>Edit Profil</span>
+                                </button>
 
-                                    <div>
-                                        <p className="text-gray-500">
-                                            Kelas
-                                        </p>
+                            </div>    
 
-                                        <p className="font-semibold text-lg">
-                                            5
-                                        </p>
-                                    </div>
+                            {/* DATA */}
+                            <div className="flex flex-col gap-5">
 
-                                    <div>
-                                        <p className="text-gray-500">
-                                            Email Orang Tua
-                                        </p>
+                                <div>
+                                    <p className="text-gray-500">
+                                        Nama Siswa
+                                    </p>
 
-                                        <p className="font-semibold text-lg">
-                                            bahlilganteng@email.com
-                                        </p>
-                                    </div>
+                                    <p className="font-semibold text-lg">
+                                        Mas Bahlil
+                                    </p>
+                                </div>
 
-                                    <div>
-                                        <p className="text-gray-500">
-                                            Nomor Telepon Orang Tua
-                                        </p>
+                                <div>
+                                    <p className="text-gray-500">
+                                        Kelas
+                                    </p>
 
-                                        <p className="font-semibold text-lg">
-                                            081234567890
-                                        </p>
-                                    </div>
+                                    <p className="font-semibold text-lg">
+                                        5
+                                    </p>
+                                </div>
 
+                                <div>
+                                    <p className="text-gray-500">
+                                        Email Orang Tua
+                                    </p>
+
+                                    <p className="font-semibold text-lg">
+                                        bahlilganteng@email.com
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p className="text-gray-500">
+                                        Nomor Telepon Orang Tua
+                                    </p>
+
+                                    <p className="font-semibold text-lg">
+                                        081234567890
+                                    </p>
                                 </div>
 
                             </div>
@@ -447,6 +495,175 @@ export default function ProfilePage() {
                 </main>
 
             </div>
+
+            {showEditModal && (
+                <div
+                    className="
+                        fixed
+                        inset-0
+                        bg-black/50
+                        flex
+                        items-center
+                        justify-center
+                        z-50
+                    "
+                >
+                    <div
+                        className="
+                            bg-white
+                            w-[500px]
+                            rounded-xl
+                            p-6
+                            shadow-xl
+                        "
+                    >
+                        <h2 className="text-2xl font-bold mb-6">
+                            Edit Profil
+                        </h2>
+
+                        {/* FOTO */}
+                        <div className="mb-5">
+                            <label className="block mb-2 font-medium">
+                                Foto Profil
+                            </label>
+
+                            <label
+                                className="
+                                    w-full
+                                    h-[180px]
+                                    border-2
+                                    border-dashed
+                                    border-gray-300
+                                    rounded-xl
+                                    flex
+                                    flex-col
+                                    items-center
+                                    justify-center
+                                    cursor-pointer
+                                    hover:border-[#2B87DA]
+                                    hover:bg-blue-50
+                                    transition-all
+                                "
+                            >
+                                <img
+                                    src="/icons/upload-image.png"
+                                    alt="Upload"
+                                    className="w-12 h-12 mb-2 opacity-60"
+                                />
+
+                                <span className="text-gray-600">
+                                    Klik untuk memilih foto
+                                </span>
+
+                                <span className="text-sm text-gray-400">
+                                    PNG, JPG, JPEG
+                                </span>
+
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    className="hidden"
+                                />
+                            </label>
+                        </div>
+
+                        {/* NAMA */}
+                        <div className="mb-4">
+                            <label className="block mb-2 font-medium">
+                                Nama Siswa
+                            </label>
+
+                            <input
+                                type="text"
+                                defaultValue="Mas Bahlil"
+                                className="
+                                    w-full
+                                    border
+                                    border-gray-300
+                                    rounded-lg
+                                    px-4
+                                    py-2
+                                "
+                            />
+                        </div>
+
+                        {/* EMAIL */}
+                        <div className="mb-4">
+                            <label className="block mb-2 font-medium">
+                                Email Orang Tua
+                            </label>
+
+                            <input
+                                type="email"
+                                defaultValue="bahlilganteng@email.com"
+                                className="
+                                    w-full
+                                    border
+                                    border-gray-300
+                                    rounded-lg
+                                    px-4
+                                    py-2
+                                "
+                            />
+                        </div>
+
+                        {/* TELEPON */}
+                        <div className="mb-6">
+                            <label className="block mb-2 font-medium">
+                                Nomor Telepon Orang Tua
+                            </label>
+
+                            <input
+                                type="text"
+                                defaultValue="081234567890"
+                                className="
+                                    w-full
+                                    border
+                                    border-gray-300
+                                    rounded-lg
+                                    px-4
+                                    py-2
+                                "
+                            />
+                        </div>
+
+                        {/* BUTTON */}
+                        <div className="flex justify-end gap-3">
+
+                            <button
+                                onClick={() => setShowEditModal(false)}
+                                className="
+                                    px-5
+                                    py-2
+                                    border
+                                    rounded-lg
+                                    hover:bg-gray-100
+                                    cursor-pointer
+                                "
+                            >
+                                Batal
+                            </button>
+
+                            <button
+                                className="
+                                    px-5
+                                    py-2
+                                    bg-[#2B87DA]
+                                    text-white
+                                    rounded-lg
+                                    hover:bg-[#236fb4]
+                                    cursor-pointer
+                                "
+                            >
+                                Simpan
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+            )}
+
         </div>
     );
 }

@@ -1,18 +1,27 @@
 import Navbar from "../../components/Navbar";
-import type { Metadata } from "next";
-import EbookCard from "../../components/EbookCard";
+import LibraryBookCard from "../../components/LibraryBookCard";
 import Footer from "../../components/Footer";
+import type { Metadata } from "next";
 import books from "../../data/buku.json";
 
 export const metadata: Metadata = {
-    title: "E-Book | Digital Library SD Solafide",
+    title: "Buku Perpustakaan | Digital Library SD Solafide",
 };
 
-export default function EbookPage() {
+export default function BooksPage() {
+    const bookList = books;
+        {books.map((book) => (
+        <LibraryBookCard
+            key={book.id_buku}
+            id={book.id_buku}
+            title={book.judul}
+            image="/buku/ayahku-pahlawanku.png"
+        />
+    ))}
 
-    const ebooks = books.filter(
+    const physicalBooks = books.filter(
         (book) =>
-            book.tipe === "ebook" ||
+            book.tipe === "fisik" ||
             book.tipe === "keduanya"
     );
 
@@ -27,12 +36,12 @@ export default function EbookPage() {
                 <div className="flex justify-between items-center mb-8">
 
                     <h1 className="text-[28px] font-bold">
-                        E-BOOK
+                        KOLEKSI BUKU
                     </h1>
 
                     <input
                         type="text"
-                        placeholder="Cari E-Book..."
+                        placeholder="Cari Buku..."
                         className="
                             w-[280px]
                             h-[42px]
@@ -47,21 +56,25 @@ export default function EbookPage() {
                 </div>
 
                 {/* GRID */}
-                <div className="grid grid-cols-5 gap-6">
-
-                    {ebooks.map((ebook) => (
-                        <EbookCard
-                            key={ebook.id_buku}
-                            id={ebook.id_buku}
-                            title={ebook.judul}
-                            image="/ebooks/dongeng-pangeran-katak.png"
+                <div
+                    className="
+                        grid
+                        grid-cols-5
+                        gap-6
+                    "
+                >
+                    {physicalBooks.map((book) => (
+                        <LibraryBookCard
+                            key={book.id_buku}
+                            id={book.id_buku}
+                            title={book.judul}
+                            image="/buku/ayahku-pahlawanku.png"
                         />
                     ))}
-
                 </div>
 
                 {/* PAGINATION */}
-                <div className="flex justify-center gap-2 mt-10">
+                <div className="flex justify-center mt-10 gap-2">
 
                     <button className="w-10 h-10 bg-white border rounded">
                         {"<"}

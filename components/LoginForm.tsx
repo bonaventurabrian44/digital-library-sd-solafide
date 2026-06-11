@@ -85,7 +85,7 @@ export default function LoginForm() {
                 {/* Buttons */}
                 <div className="flex gap-8 mt-10">
                     <Link
-                        href="/homepage"
+                        href="/user"
                         className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium flex items-center
                             justify-center transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]"
                     >

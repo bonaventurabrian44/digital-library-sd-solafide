@@ -1,0 +1,42 @@
+[
+    {
+        "id_kategori": 1,
+        "nama_kategori": "Dongeng"
+    },
+    {
+        "id_kategori": 2,
+        "nama_kategori": "Novel"
+    },
+    {
+        "id_kategori": 3,
+        "nama_kategori": "Komik"
+    },
+    {
+        "id_kategori": 4,
+        "nama_kategori": "Cerita Anak"
+    },
+    {
+        "id_kategori": 5,
+        "nama_kategori": "Agama"
+    },
+    {
+        "id_kategori": 6,
+        "nama_kategori": "Biografi"
+    },
+    {
+        "id_kategori": 7,
+        "nama_kategori": "Sejarah"
+    },
+    {
+        "id_kategori": 8,
+        "nama_kategori": "Sains"
+    },
+    {
+        "id_kategori": 9,
+        "nama_kategori": "Matematika"
+    },
+    {
+        "id_kategori": 10,
+        "nama_kategori": "Bahasa Indonesia"
+    }
+]

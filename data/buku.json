@@ -1,0 +1,102 @@
+[
+  {
+    "id_buku": 1,
+    "judul": "Bumi",
+    "penulis": "Tere Liye",
+    "penerbit": "Gramedia Pustaka Utama",
+    "tahun_terbit": 2020,
+    "status_ketersediaan": "tersedia",
+    "tipe": "fisik",
+    "id_kategori": 1
+  },
+  {
+    "id_buku": 2,
+    "judul": "Laskar Pelangi",
+    "penulis": "Andrea Hirata",
+    "penerbit": "Bentang Pustaka",
+    "tahun_terbit": 2008,
+    "status_ketersediaan": "tersedia",
+    "tipe": "keduanya",
+    "id_kategori": 1
+  },
+  {
+    "id_buku": 3,
+    "judul": "Supernova: Akar",
+    "penulis": "Dee Lestari",
+    "penerbit": "Truedee Books",
+    "tahun_terbit": 2016,
+    "status_ketersediaan": "tersedia",
+    "tipe": "fisik",
+    "id_kategori": 1
+  },
+  {
+    "id_buku": 4,
+    "judul": "Bumi Manusia",
+    "penulis": "Pramoedya Ananta Toer",
+    "penerbit": "Lentera Dipantara",
+    "tahun_terbit": 2005,
+    "status_ketersediaan": "tersedia",
+    "tipe": "ebook",
+    "id_kategori": 2
+  },
+  {
+    "id_buku": 5,
+    "judul": "Koala Kumal",
+    "penulis": "Raditya Dika",
+    "penerbit": "GagasMedia",
+    "tahun_terbit": 2015,
+    "status_ketersediaan": "tersedia",
+    "tipe": "fisik",
+    "id_kategori": 3
+  },
+  {
+    "id_buku": 6,
+    "judul": "Negeri 5 Menara",
+    "penulis": "Ahmad Fuadi",
+    "penerbit": "Gramedia",
+    "tahun_terbit": 2011,
+    "status_ketersediaan": "tersedia",
+    "tipe": "keduanya",
+    "id_kategori": 4
+  },
+  {
+    "id_buku": 7,
+    "judul": "Cantik Itu Luka",
+    "penulis": "Eka Kurniawan",
+    "penerbit": "Gramedia Pustaka Utama",
+    "tahun_terbit": 2017,
+    "status_ketersediaan": "tersedia",
+    "tipe": "fisik",
+    "id_kategori": 1
+  },
+  {
+    "id_buku": 8,
+    "judul": "Ayat-Ayat Cinta",
+    "penulis": "Habiburrahman El Shirazy",
+    "penerbit": "Republika",
+    "tahun_terbit": 2007,
+    "status_ketersediaan": "tersedia",
+    "tipe": "ebook",
+    "id_kategori": 5
+  },
+  {
+    "id_buku": 9,
+    "judul": "Mimpi Sejuta Dolar",
+    "penulis": "Merry Riana",
+    "penerbit": "Gramedia",
+    "tahun_terbit": 2013,
+    "status_ketersediaan": "tersedia",
+    "tipe": "fisik",
+    "id_kategori": 6
+  },
+  {
+    "id_buku": 10,
+    "judul": "Sapiens",
+    "penulis": "Yuval Noah Harari",
+    "penerbit": "Harvill Secker",
+    "tahun_terbit": 2018,
+    "status_ketersediaan": "tersedia",
+    "tipe": "keduanya",
+    "id_kategori": 7
+  }
+]
