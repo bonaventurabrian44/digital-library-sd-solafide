@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function StatusCard() {
     return (
-        <div className="w-[320px] bg-white border p-3 shadow-sm">
+        <div className="w-full max-w-[320px] bg-white border p-3 shadow-sm">
 
         <div className="flex flex-col gap-3">
 

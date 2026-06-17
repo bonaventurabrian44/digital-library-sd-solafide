@@ -11,34 +11,66 @@ const openSans = Open_Sans({
 
 export default function LoginForm() {
 
+    // TUTUP / BUKA SANDI
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <div className="${openSans.className} w-full max-w-[1221px] h-[468px] bg-white/50 backdrop-blur-md rounded-[40px] shadow-xl flex items-center justify-center gap-20 px-16">
+        <div
+            className={`
+                ${openSans.className}
+                w-full
+                max-w-[1050px]
+                bg-white/50
+                backdrop-blur-md
+                rounded-[24px]
+                xl:rounded-[40px]
+                shadow-xl
+                flex
+                flex-col
+                xl:flex-row
+                items-center
+                justify-center
+                gap-10
+                xl:gap-20
+                px-6
+                md:px-10
+                xl:px-16
+                py-8
+                xl:py-10
+                mx-4
+            `}
+        >
 
             {/* LEFT SIDE */}
-            <div className="w-1/2 flex flex-col items-center self-start mt-[70px]">
+            <div className="w-full xl:w-[380px] flex flex-col items-center shrink-0">
 
                 {/* Logo */}
-                <div className="flex items-center">
-                    <img
+                <img
                     src="/logo.png"
                     alt="Logo"
-                    className="w-[310px] h-[128px] object-contain"
-                    />
-                </div>
-
+                    className="w-[180px] md:w-[240px] xl:w-[310px] h-auto object-contain"
+                />
+                
                 {/* Digital Library */}
-                <h2 className="mt-[-10px] text-[33px] font-light tracking-wide text-black">
+                <h2 className="
+                    mt-[-10px]
+                    text-xl
+                    md:text-2xl
+                    xl:text-[33px]
+                    font-light
+                    tracking-wide
+                    text-black
+                    text-center
+                ">
                     DIGITAL LIBRARY
                 </h2>
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="w-1/2">
+            <div className="flex-1 w-full max-w-[500px]">
                 {/* Username */}
                 <div className="mb-8">
-                    <label className="block text-[20px] mb-3 text-black">
+                    <label className="block text-base xl:text-[20px] mb-3 text-black">
                         Nama User
                     </label>
 
@@ -50,7 +82,7 @@ export default function LoginForm() {
 
                 {/* Password */}
                 <div>
-                    <label className="block text-[20px] mb-3 text-black">
+                    <label className="block text-base xl:text-[20px] mb-3 text-black">
                         Kata Sandi
                     </label>
                 </div>
@@ -59,7 +91,7 @@ export default function LoginForm() {
                     <input
                         type={showPassword ? "text" : "password"}
                         suppressHydrationWarning
-                        className="w-full h-[50px] lg:h-[46px] rounded-xl bg-white px-4 pr-14 text-lg lg:text-xl outline-none border border-[#F80000]/20"
+                        className="w-full h-[50px] xl:h-[46px] rounded-xl bg-white px-4 pr-14 text-xl xl:text-xl outline-none border border-[#F80000]/20"
                     />
 
                     <button
@@ -76,26 +108,84 @@ export default function LoginForm() {
                 </div>
 
                 {/* Forgot Password */}
-                <div className="text-right mt-4">
-                    <button className="text-[20px] text-black hover:underline">
-                        Lupa kata sandi?
-                    </button>
+                <div className="text-right mt-2">
+                    <a
+                        href="/lupa-password"
+                        className="
+                            text-[#2B87DA]
+                            hover:underline
+                            text-sm
+                            md:text-base
+                            xl:text-[20px]
+                        "
+                    >
+                        Lupa Kata Sandi?
+                    </a>
                 </div>
 
                 {/* Buttons */}
-                <div className="flex gap-8 mt-10">
+                <div
+                    className="
+                        flex
+                        flex-col
+                        sm:flex-row
+                        w-full
+                        gap-4
+                        xl:gap-8
+                        mt-8
+                        xl:mt-10
+                    "
+                >
                     <Link
                         href="/user"
-                        className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium flex items-center
-                            justify-center transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]"
+                        className="
+                            w-full
+                            sm:flex-1
+                            h-[50px]
+                            lg:h-[60px]
+                            rounded-xl
+                            bg-[#2B87DA]
+                            text-white
+                            text-base
+                            xl:text-[20px]
+                            font-medium
+                            flex
+                            items-center
+                            justify-center
+                            transition-all
+                            duration-300
+                            hover:bg-white
+                            hover:text-[#2B87DA]
+                            hover:border
+                            hover:border-[#2B87DA]
+                        "
                     >
                         Masuk
                     </Link>
 
-                    <Link 
-                        href="/register" 
-                        className="w-full h-[60px] rounded-xl bg-[#2B87DA] text-white text-[20px] font-medium flex items-center
-                            justify-center transition-all duration-300 hover:bg-white hover:text-[#2B87DA] hover:border hover:border-[#2B87DA]"
+                    <Link
+                        href="/register"
+                        className="
+                            w-full
+                            sm:flex-1
+                            h-[50px]
+                            lg:h-[60px]
+                            rounded-xl
+                            bg-[#2B87DA]
+                            text-white
+                            text-base
+                            xl:text-[20px]
+                            font-medium
+                            flex
+                            items-center
+                            justify-center
+                            transition-all
+                            duration-300
+                            hover:bg-white
+                            hover:text-[#2B87DA]
+                            hover:border
+                            hover:border-[#2B87DA]
+                        "
                     >
                         Daftar
                     </Link>

@@ -24,6 +24,7 @@ export default function EbookCard({
 
                     transition-all
                     duration-300
+                    ease-in-out
 
                     hover:-translate-y-2
                     hover:shadow-xl
@@ -35,13 +36,15 @@ export default function EbookCard({
                     alt={title}
                     className="
                         w-full
-                        h-[220px]
+                        h-[180px]
+                        sm:h-[200px]
+                        md:h-[220px]
                         object-cover
                         rounded-md
                     "
                 />
 
-                <p className="text-center mt-4 font-medium">
+                <p className="text-center mt-4 font-medium text-sm md:text-base line-clamp-2 min-h-[40px]">
                     {title}
                 </p>
 

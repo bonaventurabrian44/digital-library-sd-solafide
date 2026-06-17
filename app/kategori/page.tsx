@@ -2,104 +2,122 @@ import Navbar from "../../components/Navbar";
 import Link from "next/link";
 import Footer from "../../components/Footer";
 import type { Metadata } from "next";
+import categoriesData from "../../data/kategori.json";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+    subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
     title: "Kategori | Digital Library SD Solafide",
 };
 
 export default function CategoryPage() {
-    const categories = [
-        {
-            name: "Bahasa Inggris",
-            slug: "bahasa-inggris",
-            image: "/kategori/inggris.jpg",
-        },
-        {
-            name: "IPA",
-            slug: "ipa",
-            image: "/kategori/ipa.png",
-        },
-        {
-            name: "Matematika",
-            slug: "matematika",
-            image: "/kategori/matematika-2.png",
-        },
-        {
-            name: "Novel",
-            slug: "novel",
-            image: "/kategori/novel-2.png",
-        },
-        {
-            name: "Sejarah",
-            slug: "sejarah",
-            image: "/kategori/sejarah-2.jpg",
-        },
-    ];
-
     return (
-        <div className="min-h-screen bg-[#F3F3F3]">
+        <div className="flex flex-col min-h-screen bg-[#F3F3F3]">
 
             <Navbar />
 
-            <div className="w-[86%] mx-auto py-8">
+            <main className="flex-1">
 
-                <h1 className="text-[36px] font-bold mb-8">
-                    KATEGORI
-                </h1>
+                <div
+                    className={`
+                        ${inter.className}
+                        w-[95%]
+                        md:w-[92%]
+                        lg:w-[86%]
+                        mx-auto
+                        py-6
+                        md:py-8
+                    `}
+                >
 
-                <div className="grid grid-cols-5 gap-6">
+                    <h1
+                        className="text-2xl md:text-[28px] font-bold mb-8"
+                    >
+                        KATEGORI
+                    </h1>
 
-                    {categories.map((category) => (
-                        <Link
-                            key={category.slug}
-                            href={`/kategori/${category.slug}`}
-                        >
-                            <div
-                                className="
-                                    bg-white
-                                    rounded-xl
-                                    shadow-sm
-                                    overflow-hidden
-                                    cursor-pointer
+                    <div
+                        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"
+                    >
 
-                                    transition-all
-                                    duration-300
+                        {categoriesData.map((category) => {
+                            const slug =
+                                category.nama_kategori
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "-");
 
-                                    hover:shadow-xl
-                                    hover:-translate-y-1
-                                "
-                            >
-                                <img
-                                    src={category.image}
-                                    alt={category.name}
-                                    className="
-                                        w-full
-                                        h-[180px]
-                                        object-cover
-                                    "
-                                />
-
-                                <div className="p-4">
-
-                                    <h2
+                            return (
+                                // MENAMPILKAN BUKU BERDASARKAN KATEGORI YANG DIPILIH
+                                <Link
+                                    key={category.id_kategori}
+                                    href={`/kategori/${slug}`}
+                                >
+                                    <div
                                         className="
-                                            text-center
-                                            font-semibold
-                                            text-lg
+                                            bg-white
+                                            rounded-xl
+                                            shadow-sm
+                                            overflow-hidden
+                                            cursor-pointer
+                                            h-full
+                                            transition-all
+                                            duration-300
+                                            hover:shadow-xl
+                                            hover:-translate-y-1
                                         "
                                     >
-                                        {category.name}
-                                    </h2>
 
-                                </div>
+                                        {/* Placeholder Gambar */}
+                                        <div
+                                            className="
+                                                w-full
+                                                h-[130px]
+                                                sm:h-[150px]
+                                                md:h-[180px]
+                                                bg-gray-300
+                                                flex
+                                                items-center
+                                                justify-center
+                                                text-gray-600
+                                                font-semibold
+                                                text-center
+                                                px-3
+                                            "
+                                        >
+                                            {category.nama_kategori}
+                                        </div>
 
-                            </div>
-                        </Link>
-                    ))}
+                                        <div className="p-4">
+
+                                            <h2
+                                                className="
+                                                    text-center
+                                                    font-semibold
+                                                    text-sm
+                                                    sm:text-base
+                                                    md:text-lg
+                                                    line-clamp-2
+                                                    min-h-[40px]
+                                                "
+                                            >
+                                                {category.nama_kategori}
+                                            </h2>
+
+                                        </div>
+
+                                    </div>
+                                </Link>
+                            );
+                        })}
+
+                    </div>
 
                 </div>
 
-            </div>
+            </main>
 
             <Footer />
 

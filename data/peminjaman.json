@@ -11,14 +11,16 @@
             "id_buku": 1,
             "jumlah": 1,
             "tanggal_kembali": null,
-            "status": "dipinjam"
+            "status": "dipinjam",
+            "denda": 0
         },
         {
             "id_detail": 2,
             "id_buku": 2,
             "jumlah": 1,
             "tanggal_kembali": null,
-            "status": "dipinjam"
+            "status": "dipinjam",
+            "denda": 0
         }
         ]
     },
@@ -34,7 +36,8 @@
             "id_buku": 4,
             "jumlah": 1,
             "tanggal_kembali": "2026-05-25",
-            "status": "kembali"
+            "status": "kembali",
+            "denda": 0
         }
         ]
     }

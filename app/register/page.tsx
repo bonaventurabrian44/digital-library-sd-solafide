@@ -1,5 +1,10 @@
 import type { Metadata } from "next"; 
 import RegisterForm from "../../components/RegisterForm";
+import { Open_Sans } from "next/font/google";
+
+const openSans = Open_Sans({
+    subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
     title: "Daftar | Digital Library SD Solafide",
@@ -7,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RegisterPage() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#2B87DA] to-[#0DD0B9] p-6">
+        <div className={`${openSans.className} min-h-screen flex items-center justify-center bg-gradient-to-b from-[#2B87DA] to-[#0DD0B9] p-6`}>
             <RegisterForm />
         </div>
     );

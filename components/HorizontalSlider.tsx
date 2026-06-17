@@ -43,26 +43,42 @@ export default function HorizontalSlider({
     }, []);
 
     const scrollLeft = () => {
-        scrollRef.current?.scrollBy({
-        left: -500,
-        behavior: "smooth",
+        const el = scrollRef.current;
+
+        if (!el) return;
+
+        el.scrollBy({
+            left: -el.clientWidth * 0.8,
+            behavior: "smooth",
         });
     };
 
     const scrollRight = () => {
-        scrollRef.current?.scrollBy({
-        left: 500,
-        behavior: "smooth",
+        const el = scrollRef.current;
+
+        if (!el) return;
+
+        el.scrollBy({
+            left: el.clientWidth * 0.8,
+            behavior: "smooth",
         });
     };
 
     return (
-        <div className="relative">
+        <div className="relative w-full max-w-full overflow-hidden">
 
         {showLeft && (
             <button
             onClick={scrollLeft}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2"
+            className="absolute
+    left-2
+    top-1/2
+    -translate-y-1/2
+    z-10
+    bg-white/90
+    shadow
+    rounded-full
+    p-2"
             >
             <ChevronLeft size={24} />
             </button>
@@ -71,17 +87,36 @@ export default function HorizontalSlider({
         {showRight && (
             <button
             onClick={scrollRight}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2"
+            className="absolute
+    right-2
+    top-1/2
+    -translate-y-1/2
+    z-10
+    bg-white/90
+    shadow
+    rounded-full
+    p-2"
             >
             <ChevronRight size={24} />
             </button>
         )}
 
-        <div
-            ref={scrollRef}
-            className="flex overflow-x-auto scrollbar-hide"
-        >
-            {children}
+        <div className="overflow-hidden">
+            <div
+                ref={scrollRef}
+                className="flex
+                gap-4
+                px-4
+                py-4
+                overflow-x-auto
+                overflow-y-hidden
+                w-full
+                max-w-full
+                scrollbar-hide
+                scroll-smooth"
+            >
+                {children}
+            </div>
         </div>
 
         </div>

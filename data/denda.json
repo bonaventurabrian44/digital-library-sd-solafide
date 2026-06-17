@@ -1,0 +1,35 @@
+[
+    {
+        "id_denda": 1,
+        "nis": "20250001",
+        "nama_siswa": "Budi Santoso",
+        "judul_buku": "Bumi",
+        "tanggal_pinjam": "2025-06-01",
+        "tanggal_jatuh_tempo": "2025-06-08",
+        "tanggal_dikembalikan": "2025-06-12",
+        "denda": 4000,
+        "status": "Denda"
+    },
+    {
+        "id_denda": 2,
+        "nis": "20250002",
+        "nama_siswa": "Siti Aminah",
+        "judul_buku": "Laskar Pelangi",
+        "tanggal_pinjam": "2025-05-20",
+        "tanggal_jatuh_tempo": "2025-05-27",
+        "tanggal_dikembalikan": "2025-05-30",
+        "denda": 3000,
+        "status": "Lunas"
+    },
+    {
+        "id_denda": 3,
+        "nis": "20250003",
+        "nama_siswa": "Andi Saputra",
+        "judul_buku": "Negeri 5 Menara",
+        "tanggal_pinjam": "2025-06-03",
+        "tanggal_jatuh_tempo": "2025-06-10",
+        "tanggal_dikembalikan": "2025-06-15",
+        "denda": 5000,
+        "status": "Denda"
+    }
+]

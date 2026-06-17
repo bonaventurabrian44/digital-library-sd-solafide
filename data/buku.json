@@ -5,9 +5,10 @@
     "penulis": "Tere Liye",
     "penerbit": "Gramedia Pustaka Utama",
     "tahun_terbit": 2020,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
-    "id_kategori": 1
+    "id_kategori": [1],
+    "jumlah": 3
   },
   {
     "id_buku": 2,
@@ -15,9 +16,10 @@
     "penulis": "Andrea Hirata",
     "penerbit": "Bentang Pustaka",
     "tahun_terbit": 2008,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "keduanya",
-    "id_kategori": 1
+    "id_kategori": [1],
+    "jumlah": 1
   },
   {
     "id_buku": 3,
@@ -25,9 +27,10 @@
     "penulis": "Dee Lestari",
     "penerbit": "Truedee Books",
     "tahun_terbit": 2016,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
-    "id_kategori": 1
+    "id_kategori": [1],
+    "jumlah": 5
   },
   {
     "id_buku": 4,
@@ -35,9 +38,10 @@
     "penulis": "Pramoedya Ananta Toer",
     "penerbit": "Lentera Dipantara",
     "tahun_terbit": 2005,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "ebook",
-    "id_kategori": 2
+    "id_kategori": [2],
+    "jumlah": 3
   },
   {
     "id_buku": 5,
@@ -45,9 +49,10 @@
     "penulis": "Raditya Dika",
     "penerbit": "GagasMedia",
     "tahun_terbit": 2015,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
-    "id_kategori": 3
+    "id_kategori": [3],
+    "jumlah": 1
   },
   {
     "id_buku": 6,
@@ -55,9 +60,10 @@
     "penulis": "Ahmad Fuadi",
     "penerbit": "Gramedia",
     "tahun_terbit": 2011,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "keduanya",
-    "id_kategori": 4
+    "id_kategori": [4],
+    "jumlah": 1
   },
   {
     "id_buku": 7,
@@ -65,9 +71,10 @@
     "penulis": "Eka Kurniawan",
     "penerbit": "Gramedia Pustaka Utama",
     "tahun_terbit": 2017,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
-    "id_kategori": 1
+    "id_kategori": [1],
+    "jumlah": 2
   },
   {
     "id_buku": 8,
@@ -75,9 +82,10 @@
     "penulis": "Habiburrahman El Shirazy",
     "penerbit": "Republika",
     "tahun_terbit": 2007,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "ebook",
-    "id_kategori": 5
+    "id_kategori": [5],
+    "jumlah": 1
   },
   {
     "id_buku": 9,
@@ -85,9 +93,10 @@
     "penulis": "Merry Riana",
     "penerbit": "Gramedia",
     "tahun_terbit": 2013,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
-    "id_kategori": 6
+    "id_kategori": [6],
+    "jumlah": 1
   },
   {
     "id_buku": 10,
@@ -95,8 +104,9 @@
     "penulis": "Yuval Noah Harari",
     "penerbit": "Harvill Secker",
     "tahun_terbit": 2018,
-    "status_ketersediaan": "tersedia",
+    "status_ketersediaan": "Tersedia",
     "tipe": "keduanya",
-    "id_kategori": 7
+    "id_kategori": [7],
+    "jumlah": 4
   }
 ]

@@ -1,13 +1,20 @@
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+    subsets: ["latin"],
+});
+
 export default function Footer() {
     return (
         <footer
-            className="
+            className=
+            {`${inter.className}
                 mt-20
                 bg-gradient-to-b
                 from-[#2B87DA]
                 to-[#33D0B2]
                 text-white
-            "
+            `}
         >
             <div className="w-[86%] mx-auto py-4">
 
