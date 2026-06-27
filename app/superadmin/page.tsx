@@ -1,13 +1,52 @@
+// app/superadmin/page.tsx
+
+"use client";
 import books from "../../data/buku.json";
 import kategoriList from "../../data/kategori.json";
+import students from "../../data/siswa.json";
+import peminjamanData from "../../data/peminjaman.json";
 import { Inter } from "next/font/google";
-
-const inter = Inter({
-    subsets: ["latin"],
-});
+import { useState, useEffect } from "react";
+import {
+  getMostBorrowedBooks,
+  getMostActiveStudents,
+  getPopularDays,
+  getMostBorrowedCategories,
+} from "../../utils/statistics.js";
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
+  ResponsiveContainer, PieChart, Pie, Cell
+} from "recharts";
+console.log("File page.tsx loaded");
+type Stats = {
+  popularBooks: { id: number; judul: string; total: number }[];
+  activeStudents: { id: number; nama: string; totalPinjam: number }[];
+  popularDays: { hari: string; total: number }[];
+  popularCategories: { id: number; nama: string; total: number }[];
+};
+const inter = Inter({ subsets: ["latin"] });
 
 export default function SuperAdminDashboard() {
-
+    const [stats, setStats] = useState<Stats>({
+        popularBooks: [],
+        activeStudents: [],
+        popularDays: [],
+        popularCategories: [],
+        });
+     useEffect(() => {
+  try {
+    const newStats = {
+      popularBooks: getMostBorrowedBooks(peminjamanData, books, 5),
+      activeStudents: getMostActiveStudents(peminjamanData, students, 5),
+      popularDays: getPopularDays(peminjamanData),
+      popularCategories: getMostBorrowedCategories(peminjamanData, books, kategoriList, 5),
+    };
+    console.log('Stats:', newStats);
+    setStats(newStats);
+  } catch (error) {
+    console.error('Error in useEffect:', error);
+  }
+}, []);
     // TOTAL BUKU YANG TERSEDIA
     const totalBuku = books.length;
 
@@ -57,7 +96,7 @@ export default function SuperAdminDashboard() {
                 a.jumlahBuku
         )
         .slice(0, 5);
-
+    
     return (
         <div className={`${inter.className} space-y-6`}>
 
@@ -245,15 +284,85 @@ export default function SuperAdminDashboard() {
             </div>
 
             {/* STATISTIK */}
-            <div className="bg-white rounded-2xl border-none shadow-sm p-6 min-h-[250px] md:min-h-[300px]">
+            <div className="bg-white rounded-2xl border-none shadow-sm p-6 min-h-[300px]">
+                <h2 className="font-bold text-lg mb-4">Statistik Peminjaman Buku</h2>
 
-                <h2 className="font-bold text-lg mb-4">
-                    Statistik Perpustakaan
-                </h2>
+                {/* Jika belum ada data peminjaman, tampilkan pesan */}
+                {stats.popularDays.every(d => d.total === 0) ? (
+                    <div className="flex items-center justify-center h-48 text-gray-400">
+                    Belum ada data peminjaman.
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Hari Populer */}
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-sm font-semibold mb-2">📅 Hari Peminjaman Terbanyak</h3>
+                        <ResponsiveContainer width="100%" height={200}>
+                        <BarChart data={stats.popularDays}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="hari" />
+                            <YAxis allowDecimals={false} />
+                            <Tooltip />
+                            <Bar dataKey="total" fill="#2B87DA" />
+                        </BarChart>
+                        </ResponsiveContainer>
+                    </div>
 
-                <div className="h-full flex items-center justify-center text-gray-400">
-                    Grafik statistik akan ditampilkan di sini
-                </div>
+                    {/* Siswa Aktif */}
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-sm font-semibold mb-2">👨‍🎓 Siswa Paling Sering Meminjam</h3>
+                        <ResponsiveContainer width="100%" height={200}>
+                        <BarChart data={stats.activeStudents} layout="vertical">
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis type="number" allowDecimals={false} />
+                            <YAxis type="category" dataKey="nama" width={70} />
+                            <Tooltip />
+                            <Bar dataKey="totalPinjam" fill="#3AC7B1" />
+                        </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+
+                    {/* Buku Populer */}
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-sm font-semibold mb-2">📚 Buku Paling Sering Dipinjam</h3>
+                        <ResponsiveContainer width="100%" height={200}>
+                        <BarChart data={stats.popularBooks} layout="vertical">
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis type="number" allowDecimals={false} />
+                            <YAxis type="category" dataKey="judul" width={70} />
+                            <Tooltip />
+                            <Bar dataKey="total" fill="#F59E0B" />
+                        </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+
+                    {/* Kategori Favorit */}
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-sm font-semibold mb-2">🏷️ Kategori Buku Favorit</h3>
+                        <ResponsiveContainer width="100%" height={200}>
+                        <PieChart>
+                            <Pie
+                            data={stats.popularCategories}
+                            dataKey="total"
+                            nameKey="nama"
+                            cx="50%"
+                            cy="50%"
+                            outerRadius={70}
+                            label
+                            >
+                            {stats.popularCategories.map((entry, index) => (
+                                <Cell
+                                key={`cell-${index}`}
+                                fill={['#2B87DA', '#3AC7B1', '#F59E0B', '#EF4444', '#8B5CF6'][index % 5]}
+                                />
+                            ))}
+                            </Pie>
+                            <Tooltip />
+                        </PieChart>
+                        </ResponsiveContainer>
+                    </div>
+                    </div>
+                )}
             </div>
 
         </div>

@@ -26,14 +26,14 @@ export default function Navbar() {
     const firstName = userName.split(" ")[0];
 
     // AMBIL ROLE 
-    const role = "superadmin";
+    const role = "user";
 
     const dashboardHref =
-    role === "superadmin"
-        ? "/superadmin"
+    role === "user"
+        ? "/profile"
         : role === "admin"
         ? "/admin"
-        : "/user";
+        : "/superadmin";
     
     return (
         <nav

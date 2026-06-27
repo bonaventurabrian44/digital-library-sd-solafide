@@ -9,6 +9,7 @@ const inter = Inter({
     subsets: ["latin"],
 });
 
+// MENAMBAH ATRIBUT FILE PADA DATA DUMMY -----------------------------------------------------------------
 type Book = {
     id_buku: number;
     judul: string;
@@ -19,6 +20,7 @@ type Book = {
     tipe: string;
     id_kategori: number[];
     jumlah: number;
+    file: string;
 };
 
 type Kategori = {
@@ -104,6 +106,7 @@ export default function DaftarBukuPage() {
     const [showTambah, setShowTambah] =
     useState(false);
 
+    // MENAMBAH ATRIBUT FILE PADA DATA BARU
     const defaultBook = {
         judul: "",
         penulis: "",
@@ -114,10 +117,15 @@ export default function DaftarBukuPage() {
         tipe: "fisik",
         id_kategori: [] as number[],
         jumlah: 1,
+        file: ""
     };
 
     const [newBook, setNewBook] =
     useState(defaultBook);
+
+    // FILE PDF E-BOOK ------------------------------------------------------------------------------
+    const [pdfFile, setPdfFile] =
+    useState<File | null>(null);
 
     return (
         <div
@@ -311,8 +319,6 @@ export default function DaftarBukuPage() {
                     <tbody>
 
                         {filteredBooks.map((book, index) => {
-
-                            
 
                             return (
                                 <tr
@@ -647,7 +653,7 @@ export default function DaftarBukuPage() {
 
                                             )}
                                         </div>
-                                        
+
                                         {/* STATUS KETERSEDIAAN */}
                                         <div>
                                             <p className="text-gray-500">
@@ -672,6 +678,7 @@ export default function DaftarBukuPage() {
                                                         rounded-lg
                                                         px-3
                                                         py-2
+                                                        max-w-full
                                                     "
                                                 >
                                                     <option value="tersedia">
@@ -735,6 +742,31 @@ export default function DaftarBukuPage() {
                                                 </p>
                                             )}
                                         </div>
+
+{/*-------------------------------------------------------------------------------- */}
+                                        {/* FILE PDF */}
+                                        {(editedBook.tipe === "ebook" ||
+                                            editedBook.tipe === "keduanya") && (
+
+                                            <div>
+                                                <p className="text-gray-500">
+                                                    File PDF E-Book
+                                                </p>
+
+                                                <p className="font-semibold">
+                                                    {editedBook.file ?? "-"}
+                                                </p>
+
+                                                {isEditing && (
+                                                    <input
+                                                        type="file"
+                                                        accept=".pdf"
+                                                        className="w-full border rounded-lg px-3 py-2 mt-2"
+                                                    />
+                                                )}
+                                            </div>
+                                        )}
+{/*-------------------------------------------------------------------------------- */}                                        
                                         
                                         {/* KATEGORI */}
                                         <div>
@@ -994,7 +1026,7 @@ export default function DaftarBukuPage() {
                                 Tambah Buku
                             </h2>
 
-                            <div className="flex flex-col md:flex-row gap-6">
+                            <div className="flex flex-col xl:flex-row gap-6">
 
                                 {/* COVER */}
                                 <div className="flex flex-col items-center">
@@ -1197,15 +1229,20 @@ export default function DaftarBukuPage() {
                                             </label>
 
                                             <select
-                                                value={
-                                                    newBook.tipe
-                                                }
-                                                onChange={(e) =>
+                                                value={newBook.tipe}
+                                                onChange={(e) => {
+                                                    const tipe = e.target.value;
+// -------------------------------------------------------------------------------------------------------
                                                     setNewBook({
                                                         ...newBook,
-                                                        tipe: e.target.value,
-                                                    })
-                                                }
+                                                        tipe,
+                                                    });
+
+                                                    if (tipe === "fisik") {
+                                                        setPdfFile(null);
+                                                    }
+                                                }}
+// ------------------------------------------------------------------------------------------------------
                                                 className="
                                                     w-full
                                                     border
@@ -1228,6 +1265,45 @@ export default function DaftarBukuPage() {
                                             </select>
 
                                         </div>
+
+{/*-------------------------------------------------------------------------------- */}
+                                        {/* PDF E-BOOK */}
+                                        {(newBook.tipe === "ebook" ||
+                                            newBook.tipe === "keduanya") && (
+
+                                            <div>
+
+                                                <label className="block mb-2 font-medium">
+                                                    File PDF E-Book
+                                                </label>
+
+                                                <input
+                                                    type="file"
+                                                    accept=".pdf"
+                                                    onChange={(e) =>
+                                                        setPdfFile(
+                                                            e.target.files?.[0] ?? null
+                                                        )
+                                                    }
+                                                    className="
+                                                        w-full
+                                                        border
+                                                        rounded-lg
+                                                        px-3
+                                                        py-2
+                                                    "
+                                                />
+
+                                                {pdfFile && (
+                                                    <p className="mt-2 text-sm text-green-600">
+                                                        {pdfFile.name}
+                                                    </p>
+                                                )}
+
+                                            </div>
+
+                                        )}
+{/*-------------------------------------------------------------------------------- */}
 
                                         <div>
 
@@ -1333,6 +1409,21 @@ export default function DaftarBukuPage() {
                             >
 
                                 <button
+                                onClick={() => {
+
+                                    // WAJIB UNGGAH PDF UNTUK E-BOOK / KEDUANYA ------------------------------------
+                                    if (
+                                        (newBook.tipe === "ebook" ||
+                                            newBook.tipe === "keduanya") &&
+                                        !pdfFile
+                                    ) {
+                                        alert("Silakan unggah file PDF.");
+                                        return;
+                                    }
+
+                                    setShowTambah(false);
+
+                                }}
                                     className="
                                         bg-green-500
                                         text-white
@@ -1349,6 +1440,7 @@ export default function DaftarBukuPage() {
                                     onClick={() => {
                                         setShowTambah(false);
                                         setNewBook(defaultBook);
+                                        setPdfFile(null); {/*----------------------------------------------------------- */}
                                     }}
                                     className="
                                         bg-red-500

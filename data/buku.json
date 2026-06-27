@@ -8,7 +8,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
     "id_kategori": [1],
-    "jumlah": 3
+    "jumlah": 3,
+    "file": null
   },
   {
     "id_buku": 2,
@@ -19,7 +20,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "keduanya",
     "id_kategori": [1],
-    "jumlah": 1
+    "jumlah": 1,
+    "file": "Laskar-Pelangi.pdf"
   },
   {
     "id_buku": 3,
@@ -30,7 +32,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
     "id_kategori": [1],
-    "jumlah": 5
+    "jumlah": 5,
+    "file": null
   },
   {
     "id_buku": 4,
@@ -41,7 +44,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "ebook",
     "id_kategori": [2],
-    "jumlah": 3
+    "jumlah": 3,
+    "file": "Bumi Manusia.pdf"
   },
   {
     "id_buku": 5,
@@ -52,7 +56,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
     "id_kategori": [3],
-    "jumlah": 1
+    "jumlah": 1,
+    "file": null
   },
   {
     "id_buku": 6,
@@ -63,7 +68,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "keduanya",
     "id_kategori": [4],
-    "jumlah": 1
+    "jumlah": 1,
+    "file": "Negeri 5 Menara.pdf"
   },
   {
     "id_buku": 7,
@@ -74,7 +80,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
     "id_kategori": [1],
-    "jumlah": 2
+    "jumlah": 2,
+    "file": null
   },
   {
     "id_buku": 8,
@@ -85,7 +92,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "ebook",
     "id_kategori": [5],
-    "jumlah": 1
+    "jumlah": 1,
+    "file": "ayat2 cinta.pdf"
   },
   {
     "id_buku": 9,
@@ -96,7 +104,8 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "fisik",
     "id_kategori": [6],
-    "jumlah": 1
+    "jumlah": 1,
+    "file": null
   },
   {
     "id_buku": 10,
@@ -107,6 +116,7 @@
     "status_ketersediaan": "Tersedia",
     "tipe": "keduanya",
     "id_kategori": [7],
-    "jumlah": 4
+    "jumlah": 4,
+    "file": "Sapiens.pdf"
   }
 ]
