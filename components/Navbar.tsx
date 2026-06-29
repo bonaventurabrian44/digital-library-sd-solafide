@@ -38,16 +38,8 @@ export default function Navbar() {
     return (
         <nav
             className={`
-                ${inter.className}
-                relative
-                w-full
-                min-h-[60px]
-                bg-gradient-to-b
-                from-[#2B87DA]
-                to-[#33D0B2]
-                shadow-md
-                px-4
-                md:px-10
+                ${inter.className} relative w-full min-h-[60px] bg-gradient-to-b
+                from-[#2B87DA] to-[#33D0B2] shadow-md px-4 md:px-10
             `}
         >
             <div
@@ -106,16 +98,8 @@ export default function Navbar() {
 
                             <Link
                                 href="/login"
-                                className="
-                                    bg-white
-                                    text-[#2B87DA]
-                                    px-5
-                                    py-2
-                                    rounded-lg
-                                    font-semibold
-                                    hover:bg-gray-100
-                                    transition-all
-                                "
+                                className="bg-white text-[#2B87DA] px-5 py-2 rounded-lg 
+                                font-semibold hover:bg-gray-100 transition-all"
                             >
                                 Masuk
                             </Link>
@@ -127,20 +111,10 @@ export default function Navbar() {
                                     onClick={() =>
                                         setProfileOpen(!profileOpen)
                                     }
-                                    className="
-                                        bg-[#5AA9E6]
-                                        text-white
-                                        px-5
-                                        py-2
-                                        rounded-lg
-                                        font-semibold
-                                        flex
-                                        items-center
-                                        gap-1.5
-                                        hover:bg-[#4A9AD8]
-                                        transition-all
-                                        cursor-pointer
-                                    "
+                                    className="bg-[#5AA9E6] text-white px-5
+                                        py-2 rounded-lg font-semibold flex
+                                        items-center gap-1.5 hover:bg-[#4A9AD8]
+                                        transition-all cursor-pointer"
                                 >
                                     {firstName}
 
@@ -155,17 +129,9 @@ export default function Navbar() {
 
                                 {profileOpen && (
                                     <div
-                                        className="
-                                            absolute
-                                            right-0
-                                            mt-2
-                                            w-48
-                                            bg-white
-                                            rounded-lg
-                                            shadow-lg
-                                            overflow-hidden
-                                            z-50
-                                        "
+                                        className="absolute right-0 mt-2 w-48
+                                            bg-white rounded-lg shadow-lg
+                                            overflow-hidden z-50"
                                     >
                                         <Link
                                             href={dashboardHref}
@@ -207,29 +173,15 @@ export default function Navbar() {
             {/* HAMBURGER */}
             {isOpen && (
                 <div
-                    className="
-                        xl:hidden
-                        absolute
-                        top-[60px]
-                        left-0
-                        w-full
-                        bg-[#33D0B2]
-                        shadow-lg
-                        z-50
-                    "
+                    className="xl:hidden absolute top-[60px] left-0 w-full
+                        bg-[#33D0B2] shadow-lg z-50"
                 >
                     <Link
                         href={homeHref}
                         onClick={() => setIsOpen(false)}
-                        className="
-                            block
-                            px-5
-                            py-3
-                            text-black
-                            font-semibold
-                            hover:bg-[#2BC5A8]
-                            transition-colors
-                        "
+                        className="block px-5 py-3 text-black
+                            font-semibold hover:bg-[#2BC5A8]
+                            transition-colors"
                     >
                         Beranda
                     </Link>
@@ -237,15 +189,9 @@ export default function Navbar() {
                     <Link
                         href="/books"
                         onClick={() => setIsOpen(false)}
-                        className="
-                            block
-                            px-5
-                            py-3
-                            text-black
-                            font-semibold
-                            hover:bg-[#2BC5A8]
-                            transition-colors
-                        "
+                        className="block px-5 py-3 text-black
+                            font-semibold hover:bg-[#2BC5A8]
+                            transition-colors"
                     >
                         Koleksi
                     </Link>
@@ -253,15 +199,9 @@ export default function Navbar() {
                     <Link
                         href="/ebook"
                         onClick={() => setIsOpen(false)}
-                        className="
-                            block
-                            px-5
-                            py-3
-                            text-black
-                            font-semibold
-                            hover:bg-[#2BC5A8]
-                            transition-colors
-                        "
+                        className="block px-5 py-3 text-black 
+                            font-semibold hover:bg-[#2BC5A8]
+                            transition-colors"
                     >
                         Ebook
                     </Link>
@@ -269,15 +209,9 @@ export default function Navbar() {
                     <Link
                         href="/kategori"
                         onClick={() => setIsOpen(false)}
-                        className="
-                            block
-                            px-5
-                            py-3
-                            text-black
-                            font-semibold
-                            hover:bg-[#2BC5A8]
-                            transition-colors
-                        "
+                        className="block px-5 py-3 text-black
+                            font-semibold hover:bg-[#2BC5A8]
+                            transition-colors"
                     >
                         Kategori
                     </Link>
@@ -288,15 +222,9 @@ export default function Navbar() {
                             <Link
                                 href={dashboardHref}
                                 onClick={() => setIsOpen(false)}
-                                className="
-                                    block
-                                    px-5
-                                    py-3
-                                    text-black
-                                    font-semibold
-                                    hover:bg-[#2BC5A8]
-                                    transition-colors
-                                "
+                                className="block px-5 py-3 text-black
+                                    font-semibold hover:bg-[#2BC5A8]
+                                    transition-colors"
                             >
                                 Dashboard
                             </Link>
@@ -304,15 +232,9 @@ export default function Navbar() {
                             <Link
                                 href="/login"
                                 onClick={() => setIsOpen(false)}
-                                className="
-                                    block
-                                    px-5
-                                    py-3
-                                    text-black
-                                    font-semibold
-                                    hover:bg-[#2BC5A8]
-                                    transition-colors
-                                "
+                                className="block px-5 py-3 text-black
+                                    font-semibold hover:bg-[#2BC5A8]
+                                    transition-colors"
                             >
                                 Keluar
                             </Link>
@@ -324,15 +246,9 @@ export default function Navbar() {
                             <Link
                                 href="/login"
                                 onClick={() => setIsOpen(false)}
-                                className="
-                                    block
-                                    px-5
-                                    py-3
-                                    text-black
-                                    font-semibold
-                                    hover:bg-[#2BC5A8]
-                                    transition-colors
-                                "
+                                className="block px-5 py-3 text-black
+                                    font-semibold hover:bg-[#2BC5A8]
+                                    transition-colors"
                             >
                                 Masuk
                             </Link>

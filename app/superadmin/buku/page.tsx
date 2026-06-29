@@ -128,48 +128,16 @@ export default function DaftarBukuPage() {
     useState<File | null>(null);
 
     return (
-        <div
-            className={`
-                ${inter.className}
-                bg-white
-                rounded-xl
-                p-4
-                md:p-6
-                lg:p-8
-                shadow-sm
-            `}
-        >
+        <div className={`${inter.className} bg-white rounded-xl p-4 md:p-6 lg:p-8 shadow-sm`}>
             {/* HEADER */}
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
 
-                <h1
-                    className="
-                        text-2xl
-                        md:text-3xl
-                        font-bold
-                        mb-6
-                        text-center
-                        lg:text-left
-                    "
-                >
+                <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center lg:text-left">
                     Daftar Buku
                 </h1>
 
-                <button
-                    onClick={() =>
-                        setShowTambah(true)
-                    }
-                    className="
-                        w-full
-                        sm:w-auto
-                        bg-[#2B87DA]
-                        text-white
-                        px-5
-                        py-2
-                        rounded-lg
-                        hover:bg-[#236fb4]
-                        cursor-pointer
-                    "
+                <button onClick={() => setShowTambah(true)}
+                    className="w-full sm:w-auto bg-[#2B87DA] text-white px-5 py-2 rounded-lg hover:bg-[#236fb4] cursor-pointer"
                 >
                     + Tambah Buku
                 </button>
@@ -177,102 +145,33 @@ export default function DaftarBukuPage() {
             </div>
 
             {/* FILTER */}
-            <div
-                className="
-                    flex
-                    flex-col
-                    lg:flex-row
-                    lg:justify-between
-                    lg:items-center
-                    gap-4
-                    mb-6
-                "
-            >
+            <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-6">
                 <div className="flex flex-wrap gap-2">
 
-                    <button
-                    onClick={() =>
-                        setFilterType("all")
-                        }
-                        className={`
-                            px-6
-                            py-2
-                            border
-                            rounded-full
-                            font-medium
-                            transition-all
-                            cursor-pointer
-                            ${
-                                filterType === "all"
-                                    ? "bg-[#2B87DA] text-white"
-                                    : "hover:bg-[#2B87DA] hover:text-white"
-                            }
-                        `}
+                    <button onClick={() => setFilterType("all")}
+                        className={`px-6 py-2 border rounded-full font-medium transition-all cursor-pointer
+                            ${filterType === "all" ? "bg-[#2B87DA] text-white" : "hover:bg-[#2B87DA] hover:text-white"}`}
                     >
                         Semua Daftar
                     </button>
 
-                    <button
-                        onClick={() =>
-                            setFilterType("fisik")
-                        }
-                        className={`
-                            px-5
-                            py-2
-                            border
-                            rounded-full
-                            font-medium
-                            transition-all
-                            cursor-pointer
-                            ${
-                                filterType === "fisik"
-                                    ? "bg-[#2B87DA] text-white"
-                                    : "hover:bg-[#2B87DA] hover:text-white"
-                            }
-                        `}
+                    <button onClick={() => setFilterType("fisik")}
+                        className={`px-5 py-2 border rounded-full font-medium transition-all cursor-pointer
+                            ${filterType === "fisik" ? "bg-[#2B87DA] text-white" : "hover:bg-[#2B87DA] hover:text-white"}`}
                     >
                         Buku Fisik
                     </button>
 
-                    <button
-                        onClick={() =>
-                            setFilterType("ebook")
-                        }
-                        className={`
-                            px-5
-                            py-2
-                            border
-                            rounded-full
-                            font-medium
-                            transition-all
-                            cursor-pointer
-                            ${
-                                filterType === "ebook"
-                                    ? "bg-[#2B87DA] text-white"
-                                    : "hover:bg-[#2B87DA] hover:text-white"
-                            }
-                        `}
+                    <button onClick={() => setFilterType("ebook")}
+                        className={`px-5 py-2 border rounded-full font-medium transition-all cursor-pointer
+                            ${filterType === "ebook" ? "bg-[#2B87DA] text-white" : "hover:bg-[#2B87DA] hover:text-white"}`}
                     >
                         E-Book
                     </button>
 
                 </div>
 
-                <input
-                    type="text"
-                    placeholder="Cari Judul Buku..."
-                    className="
-                        w-full
-                        lg:w-[320px]
-                        h-[42px]
-                        border
-                        border-gray-300
-                        rounded-lg
-                        px-4
-                        outline-none
-                        focus:border-[#2B87DA]
-                    "
-                />
+                <input type="text" placeholder="Cari Judul Buku..." className="w-full lg:w-[320px] h-[42px] border border-gray-300 rounded-lg px-4 outline-none focus:border-[#2B87DA]"/>
             </div>
 
             {/* TABLE */}
@@ -321,23 +220,13 @@ export default function DaftarBukuPage() {
                         {filteredBooks.map((book, index) => {
 
                             return (
-                                <tr
-                                    key={book.id_buku}
-                                    className="border-b"
-                                >
+                                <tr key={book.id_buku} className="border-b">
                                     <td className="pr-6">
                                         {index + 1}
                                     </td>
 
                                     <td>
-                                        <div
-                                            className="
-                                                w-16
-                                                h-20
-                                                bg-gray-200
-                                                rounded
-                                            "
-                                        />
+                                        <div className="w-16 h-20 bg-gray-200 rounded"/>
                                     </td>
 
                                     <td>
@@ -354,14 +243,7 @@ export default function DaftarBukuPage() {
 
                                     <td>
                                         {book.id_kategori
-                                            .map(
-                                                (id) =>
-                                                    categoriesList.find(
-                                                        (k) =>
-                                                            k.id_kategori === id
-                                                    )?.nama_kategori
-                                            )
-                                            .join(", ")
+                                            .map((id) => categoriesList.find((k) => k.id_kategori === id)?.nama_kategori).join(", ")
                                         }
                                     </td>
 
@@ -369,22 +251,13 @@ export default function DaftarBukuPage() {
 
                                         <div className="flex flex-col sm:flex-row justify-center gap-2">
 
-                                            <button
-                                                onClick={() => {
+                                            <button onClick={() => {
                                                     setSelectedBook(book);
                                                     setEditedBook(book);
                                                     setIsEditing(false);
                                                     setShowDetail(true);
                                                 }}
-                                                className="
-                                                    bg-[#2B87DA]
-                                                    text-white
-                                                    px-3
-                                                    py-1
-                                                    rounded
-                                                    text-sm
-                                                    cursor-pointer
-                                                "
+                                                className="bg-[#2B87DA] text-white px-3 py-1 rounded text-sm cursor-pointer"
                                             >
                                                 Detail
                                             </button>
@@ -394,17 +267,7 @@ export default function DaftarBukuPage() {
                                                     setSelectedBookTitle(book.judul);
                                                     setShowDeleteModal(true);
                                                 }}
-                                                className="
-                                                    bg-red-500
-                                                    text-white
-                                                    px-3
-                                                    py-1
-                                                    rounded
-                                                    text-sm
-                                                    hover:bg-red-600
-                                                    transition-all
-                                                    cursor-pointer
-                                                "
+                                                className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 transition-all cursor-pointer"
                                             >
                                                 Hapus
                                             </button>
@@ -1285,13 +1148,7 @@ export default function DaftarBukuPage() {
                                                             e.target.files?.[0] ?? null
                                                         )
                                                     }
-                                                    className="
-                                                        w-full
-                                                        border
-                                                        rounded-lg
-                                                        px-3
-                                                        py-2
-                                                    "
+                                                    className="w-full border rounded-lg px-3 py-2"
                                                 />
 
                                                 {pdfFile && (

@@ -48,47 +48,19 @@ export default function KategoriPage() {
     useState(false);
 
     return (
-        <div
-            className={`
-                ${inter.className}
-                bg-white
-                rounded-xl
-                p-8
-                shadow-sm
-            `}
-        >
+        <div className={`${inter.className} bg-white rounded-xl p-8 shadow-sm`}>
             {/* HEADER */}
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
 
-                <h1
-                    className="
-                        text-2xl
-                        md:text-3xl
-                        font-bold
-                        mb-6
-                        text-center
-                        lg:text-left
-                    "
-                >
+                <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center lg:text-left">
                     Daftar Kategori
                 </h1>
 
-                <button
-                onClick={() => {
+                <button onClick={() => {
                     setNewKategori(defaultKategori);
                     setShowTambah(true);
                 }}
-                    className="
-                        w-full
-                        sm:w-auto
-                        bg-[#2B87DA]
-                        text-white
-                        px-5
-                        py-2
-                        rounded-lg
-                        hover:bg-[#236fb4]
-                        cursor-pointer
-                    "
+                    className="w-full sm:w-auto bg-[#2B87DA] text-white px-5 py-2 rounded-lg hover:bg-[#236fb4] cursor-pointer"
                 >
                     + Tambah Kategori
                 </button>
@@ -98,21 +70,7 @@ export default function KategoriPage() {
             {/* SEARCH */}
             <div className="flex justify-end mb-10">
 
-                <input
-                    type="text"
-                    placeholder="Cari Kategori..."
-                    className="
-                        w-full
-                        sm:w-[350px]
-                        border
-                        border-gray-300
-                        rounded-lg
-                        px-4
-                        py-2
-                        outline-none
-                        focus:border-[#2B87DA]
-                    "
-                />
+                <input type="text" placeholder="Cari Kategori..." className="w-full sm:w-[350px] border border-gray-300 rounded-lg px-4 py-2 outline-none focus:border-[#2B87DA]"/>
 
             </div>
 
@@ -122,12 +80,7 @@ export default function KategoriPage() {
 
                     <thead>
 
-                        <tr
-                            className="
-                                border-b
-                                border-gray-400
-                            "
-                        >
+                        <tr className="border-b border-gray-400">
                             <th className="pr-6 text-left py-3">
                                 No
                             </th>
@@ -151,20 +104,12 @@ export default function KategoriPage() {
 
                         {categories.map(
                             (kategori, index) => {
-
-                                const jumlahBuku =
-                                    books.filter(
-                                    (book) =>
-                                        book.id_kategori.includes(
-                                            kategori.id_kategori
-                                        )
+                                const jumlahBuku = books.filter(
+                                    (book) => book.id_kategori.includes(kategori.id_kategori)
                                 ).length
 
                                 return (
-                                    <tr
-                                        key={kategori.id_kategori}
-                                        className="border-b"
-                                    >
+                                    <tr key={kategori.id_kategori} className="border-b">
                                         <td className="py-4">
                                             {index + 1}
                                         </td>
@@ -179,48 +124,25 @@ export default function KategoriPage() {
 
                                         <td>
 
-                                            <div
-                                                className="
-                                                    flex
-                                                    justify-center
-                                                    gap-2
-                                                "
-                                            >
-                                                <button
-                                                onClick={() => {
+                                            <div className="flex justify-center gap-2">
+                                                <button onClick={() => {
                                                     setSelectedKategori(kategori);
                                                     setEditedKategori({
                                                         ...kategori,
                                                     });
                                                     setShowEdit(true);
                                                 }}
-                                                    className="
-                                                        bg-blue-500
-                                                        text-white
-                                                        px-3
-                                                        py-1
-                                                        rounded
-                                                        text-sm
-                                                        hover:bg-blue-600
-                                                        cursor-pointer
-                                                    "
+                                                    className="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 cursor-pointer"
                                                 >
                                                     Edit
                                                 </button>
 
-                                                <button
-                                                    disabled={jumlahBuku > 0}
-                                                    onClick={() => {
+                                                <button disabled={jumlahBuku > 0} onClick={() => {
                                                         setSelectedKategori(kategori);
                                                         setShowDelete(true);
                                                     }}
-                                                    className={`
-                                                        px-3
-                                                        py-1
-                                                        rounded
-                                                        text-sm
-                                                        ${
-                                                            jumlahBuku > 0
+                                                    className={`px-3 py-1 rounded text-sm
+                                                        ${jumlahBuku > 0
                                                                 ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                                                                 : "bg-red-500 text-white hover:bg-red-600 cursor-pointer"
                                                         }

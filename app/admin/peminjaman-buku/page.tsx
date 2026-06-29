@@ -149,40 +149,17 @@ export default function PeminjamanBukuPage() {
 
     return (
 
-        <div
-            className={`
-                ${inter.className}
-                bg-white
-                rounded-xl
-                p-8
-                shadow-sm
-            `}
-        >
+        <div className={`${inter.className} bg-white rounded-xl p-8 shadow-sm`}>
 
-            <div
-                className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6"
-            >
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
 
-                <h1
-                    className="text-2xl md:text-3xl font-bold mb-6 text-center lg:text-left"
-                >
+                <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center lg:text-left">
                     Catatan Peminjaman Buku
                 </h1>
                 
                 {/* TAMBAH PEMINJAM BUTTON */}
-                <button
-                onClick={() =>
-                    setShowTambahPinjam(true)
-                }
-                    className="
-                        bg-[#2B87DA]
-                        text-white
-                        px-5
-                        py-2
-                        rounded-lg
-                        hover:bg-[#236fb4]
-                        cursor-pointer
-                    "
+                <button onClick={() => setShowTambahPinjam(true)}
+                    className="bg-[#2B87DA] text-white px-5 py-2 rounded-lg hover:bg-[#236fb4] cursor-pointer"
                 >
                     + Tambah Peminjam
                 </button>
@@ -194,23 +171,9 @@ export default function PeminjamanBukuPage() {
                 <input
                     type="text"
                     value={search}
-                    onChange={(e) =>
-                        setSearch(
-                            e.target.value
-                        )
-                    }
+                    onChange={(e) => setSearch(e.target.value)}
                     placeholder="Cari Nama Siswa"
-                    className="
-                        w-full
-                        sm:w-[350px]
-                        h-[42px]
-                        border
-                        border-gray-300
-                        rounded-lg
-                        px-4
-                        outline-none
-                        focus:border-[#2B87DA]
-                    "
+                    className="w-full sm:w-[350px] h-[42px] border border-gray-300 rounded-lg px-4 outline-none focus:border-[#2B87DA]"
                 />
             </div>
 
@@ -260,17 +223,11 @@ export default function PeminjamanBukuPage() {
                         {filteredPeminjaman.map(
                             (pinjam, index) => {
 
-                                const siswa =
-                                    getSiswa(
-                                        pinjam.id_siswa
-                                    );
+                                const siswa = getSiswa(pinjam.id_siswa);
 
                                 return (
 
-                                    <tr
-                                        key={pinjam.id_pinjam}
-                                        className="border-b"
-                                    >
+                                    <tr key={pinjam.id_pinjam} className="border-b">
 
                                         <td className="py-5">
                                             {index + 1}
@@ -285,33 +242,19 @@ export default function PeminjamanBukuPage() {
                                         </td>
 
                                         <td>
-                                            {
-                                                pinjam.tanggal_pinjam
-                                            }
+                                            { pinjam.tanggal_pinjam}
                                         </td>
 
                                         <td>
-                                            {
-                                                pinjam.tanggal_jatuh_tempo
-                                            }
+                                            {pinjam.tanggal_jatuh_tempo}
                                         </td>
 
                                         <td>
 
-                                            <span
-                                                className={`
-                                                    px-3
-                                                    py-1
-                                                    rounded-full
-                                                    text-sm
-                                                    ${getStatusClass(
-                                                        pinjam.status
-                                                    )}
-                                                `}
+                                            <span className={`px-3 py-1 rounded-full text-sm
+                                                    ${getStatusClass(pinjam.status)}`}
                                             >
-                                                {
-                                                    pinjam.status
-                                                }
+                                                {pinjam.status}
                                             </span>
 
                                         </td>
@@ -323,25 +266,10 @@ export default function PeminjamanBukuPage() {
 
                                                 <button
                                                     onClick={() => {
-
-                                                        setSelectedPinjam(
-                                                            pinjam
-                                                        );
-
-                                                        setShowDetail(
-                                                            true
-                                                        );
-
+                                                        setSelectedPinjam(pinjam);
+                                                        setShowDetail(true);
                                                     }}
-                                                    className="
-                                                        bg-blue-500
-                                                        text-white
-                                                        px-3
-                                                        py-1
-                                                        rounded
-                                                        text-sm
-                                                        cursor-pointer
-                                                    "
+                                                    className="bg-blue-500 text-white px-3 py-1 rounded text-sm cursor-pointer"
                                                 >
                                                     Detail
                                                 </button>

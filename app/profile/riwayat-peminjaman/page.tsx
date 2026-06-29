@@ -15,96 +15,31 @@ export default function RiwayatPeminjamanPage() {
     const riwayat: any[] = [];
 
     return (
-        <div
-            className={`
-                ${inter.className}
-                bg-white
-                rounded-xl
-                p-4
-                md:p-8
-                shadow-sm
-            `}
-        >
+        <div className={`${inter.className} bg-white rounded-xl p-4 md:p-8 shadow-sm`}>
             {/* HEADER */}
-            <h1
-                className="
-                    text-2xl
-                    md:text-3xl
-                    font-bold
-                    mb-6
-                    text-center
-                    lg:text-left
-                "
-            >
+            <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center lg:text-left">
                 Riwayat Peminjaman
             </h1>
 
             {/* SUMMARY */}
-            <div
-                className="
-                    flex
-                    flex-col
-                    sm:flex-row
-                    gap-4
-                    md:gap-6
-                    mb-8
-                    md:mb-10
-                "
-            >
-                <div
-                    className="
-                        bg-blue-50
-                        border
-                        border-blue-200
-                        rounded-xl
-                        px-8
-                        py-5
-                        w-full
-                        sm:min-w-[220px]
-                    "
-                >
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-8 md:mb-10">
+                <div className="bg-blue-50 border border-blue-200 rounded-xl px-8 py-5 w-full sm:min-w-[220px]">
                     <p className="text-gray-500">
                         Buku Dipinjam
                     </p>
 
-                    <p
-                        className="
-                            text-3xl
-                            font-bold
-                            text-[#2B87DA]
-                        "
-                    >
+                    <p className="text-3xl font-bold text-[#2B87DA]">
                         {totalBukuDipinjam}
                     </p>
                 </div>
 
-                <div
-                    className="
-                        bg-red-50
-                        border
-                        border-red-200
-                        rounded-xl
-                        px-8
-                        py-5
-                        w-full
-                        sm:min-w-[220px]
-                    "
-                >
+                <div className="bg-red-50 border border-red-200 rounded-xl px-8 py-5 w-full sm:min-w-[220px]">
                     <p className="text-gray-500">
                         Total Denda
                     </p>
 
-                    <p
-                        className="
-                            text-3xl
-                            font-bold
-                            text-red-500
-                        "
-                    >
-                        Rp
-                        {totalDenda.toLocaleString(
-                            "id-ID"
-                        )}
+                    <p className="text-3xl font-bold text-red-500">
+                        Rp {totalDenda.toLocaleString("id-ID")}
                     </p>
                 </div>
             </div>
@@ -147,52 +82,32 @@ export default function RiwayatPeminjamanPage() {
 
                     <tbody>
 
-                        {riwayat.length >
-                        0 ? (
-                            riwayat.map(
-                                (
-                                    item,
-                                    index
-                                ) => (
-                                    <tr
-                                        key={
-                                            index
-                                        }
-                                        className="border-b"
-                                    >
+                        {riwayat.length > 0 ? (
+                            riwayat.map((
+                                item, index) => (
+                                    <tr key={index} className="border-b">
                                         <td className="py-4 px-3">
-                                            {index +
-                                                1}
+                                            {index + 1}
                                         </td>
 
                                         <td className="py-4 px-3">
-                                            {
-                                                item.judul
-                                            }
+                                            {item.judul}
                                         </td>
 
                                         <td className="py-4 px-3">
-                                            {
-                                                item.tanggal_pinjam
-                                            }
+                                            {item.tanggal_pinjam}
                                         </td>
 
                                         <td className="py-4 px-3">
-                                            {
-                                                item.tanggal_jatuh_tempo
-                                            }
+                                            {item.tanggal_jatuh_tempo}
                                         </td>
 
                                         <td className="py-4 px-3">
-                                            {
-                                                item.tanggal_kembali
-                                            }
+                                            {item.tanggal_kembali}
                                         </td>
 
                                         <td className="py-4 px-3">
-                                            {
-                                                item.status
-                                            }
+                                            { item.status}
                                         </td>
 
                                         <td className="py-4 px-3">
@@ -204,17 +119,8 @@ export default function RiwayatPeminjamanPage() {
                             )
                         ) : (
                             <tr>
-                                <td
-                                    colSpan={
-                                        7
-                                    }
-                                    className="
-                                        text-center
-                                        py-10
-                                        px-4
-                                        text-gray-500
-                                    "
-                                >
+                                <td colSpan={7}
+                                    className="text-center py-10 px-4 text-gray-500">
                                     Belum ada
                                     riwayat
                                     peminjaman

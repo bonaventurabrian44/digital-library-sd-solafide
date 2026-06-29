@@ -26,17 +26,7 @@ export default function DendaPage() {
 
     return (
 
-        <div
-            className={`
-                ${inter.className}
-                bg-white
-                rounded-xl
-                p-4
-                md:p-6
-                lg:p-8
-                shadow-sm
-            `}
-        >
+        <div className={`${inter.className} bg-white rounded-xl p-4 md:p-6 lg:p-8 shadow-sm`}>
 
             {/* HEADER */}
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-8">
@@ -46,26 +36,9 @@ export default function DendaPage() {
                 </h1>
 
                 {/* SEARCHBAR */}
-                <input
-                    type="text"
-                    placeholder="Cari Nama Siswa atau Judul Buku..."
-                    value={search}
-                    onChange={(e) =>
-                        setSearch(
-                            e.target.value
-                        )
-                    }
-                    className="
-                        w-full
-                        lg:w-[350px]
-                        h-[42px]
-                        border
-                        border-gray-300
-                        rounded-lg
-                        px-4
-                        outline-none
-                        focus:border-[#2B87DA]
-                    "
+                <input type="text" placeholder="Cari Nama Siswa atau Judul Buku..."
+                    value={search} onChange={(e) => setSearch(e.target.value)}
+                    className="w-full lg:w-[350px] h-[42px] border border-gray-300 rounded-lg px-4 outline-none focus:border-[#2B87DA]"
                 />
 
             </div>
@@ -125,19 +98,12 @@ export default function DendaPage() {
 
                     <tbody>
 
-                        {filteredDenda.length >
-                        0 ? (
+                        {filteredDenda.length >0 ? (
 
                             filteredDenda.map(
-                                (
-                                    item,
-                                    index
-                                ) => (
+                                (item,index) => (
 
-                                    <tr
-                                        key={index}
-                                        className="border-b"
-                                    >
+                                    <tr key={index} className="border-b">
 
                                         <td className="py-4">
                                             {index + 1}
@@ -169,10 +135,7 @@ export default function DendaPage() {
 
                                         {/* NILAI DENDA */}
                                         <td>
-                                            Rp
-                                            {item.denda.toLocaleString(
-                                                "id-ID"
-                                            )}
+                                            Rp{item.denda.toLocaleString("id-ID")}
                                         </td>
 
                                         <td>
@@ -180,33 +143,12 @@ export default function DendaPage() {
                                             {/* BAYAR BUTTON */}
                                             <div className="flex justify-center">
 
-                                                <button
-                                                    disabled={
-                                                        item.status ===
-                                                        "Lunas"
-                                                    }
-                                                    className={
-                                                        item.status ===
-                                                        "Lunas"
-                                                            ? `
-                                                            bg-gray-400
-                                                            text-white
-                                                            px-3
-                                                            py-1
-                                                            rounded
-                                                            text-sm
-                                                            cursor-not-allowed
-                                                        `
-                                                            : `
-                                                            bg-red-500
-                                                            hover:bg-red-600
-                                                            text-white
-                                                            px-3
-                                                            py-1
-                                                            rounded
-                                                            text-sm
-                                                            cursor-pointer
-                                                        `
+                                                <button disabled={item.status === "Lunas"}
+                                                    className={item.status === "Lunas"? `bg-gray-400 text-white
+                                                            px-3 py-1 rounded text-smcursor-not-allowed`
+                                                            : 
+                                                            `bg-red-500 hover:bg-red-600 text-white px-3 py-1
+                                                            rounded text-sm cursor-pointer`
                                                     }
                                                 >
                                                     Bayar
@@ -221,26 +163,10 @@ export default function DendaPage() {
                                             {/* STATUS DENDA */}
                                             <div className="flex justify-center">
 
-                                                <span
-                                                    className={
-                                                        item.status ===
-                                                        "Lunas"
-                                                            ? `
-                                                            bg-green-100
-                                                            text-green-700
-                                                            px-3
-                                                            py-1
-                                                            rounded-full
-                                                            text-sm
-                                                        `
-                                                            : `
-                                                            bg-red-100
-                                                            text-red-700
-                                                            px-3
-                                                            py-1
-                                                            rounded-full
-                                                            text-sm
-                                                        `
+                                                <span className={item.status ==="Lunas"? 
+                                                `bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm`
+                                                            : 
+                                                            `bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm`
                                                     }
                                                 >
                                                     {item.status}
@@ -259,10 +185,7 @@ export default function DendaPage() {
 
                             <tr>
 
-                                <td
-                                    colSpan={10}
-                                    className="py-12 text-center text-gray-500"
-                                >
+                                <td colSpan={10} className="py-12 text-center text-gray-500">
                                     Belum ada data denda
                                 </td>
 

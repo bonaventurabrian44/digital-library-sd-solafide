@@ -5,6 +5,7 @@ import Footer from "../../../components/Footer";
 import { useRouter, useParams } from "next/navigation";
 import books from "../../../data/buku.json";
 import categories from "../../../data/kategori.json";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -103,10 +104,8 @@ export default function EbookDetailPage() {
                                 />
 
                                 {/* BACA E-BOOK BUTTON */}
-                                <a
-                                    href={`/pdf/${ebook.id_buku}.pdf`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <Link
+                                    href={`/ebook/${ebook.id_buku}/baca`}
                                     className="
                                         mt-4
                                         w-full
@@ -123,7 +122,7 @@ export default function EbookDetailPage() {
                                     "
                                 >
                                     Baca E-Book
-                                </a>
+                                </Link>
 
                             </div>
 

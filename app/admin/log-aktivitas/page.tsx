@@ -36,9 +36,7 @@ export default function LogAktivitasPage() {
         );
 
     return (
-        <div
-            className={`${inter.className} bg-white rounded-xl p-4 md:p-6 lg:p-8 shadow-sm`}
-        >
+        <div className={`${inter.className} bg-white rounded-xl p-4 md:p-6 lg:p-8 shadow-sm`}>
             {/* HEADER */}
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-8">
 
@@ -47,26 +45,9 @@ export default function LogAktivitasPage() {
                 </h1>
 
                 {/* SEARCHBAR */}
-                <input
-                    type="text"
-                    placeholder="Cari Nama atau Aktivitas..."
-                    value={search}
-                    onChange={(e) =>
-                        setSearch(
-                            e.target.value
-                        )
-                    }
-                    className="
-                        w-full
-                        lg:w-[350px]
-                        h-[42px]
-                        border
-                        border-gray-300
-                        rounded-lg
-                        px-4
-                        outline-none
-                        focus:border-[#2B87DA]
-                    "
+                <input type="text" placeholder="Cari Nama atau Aktivitas..."
+                    value={search} onChange={(e) => setSearch(e.target.value)}
+                    className="w-full lg:w-[350px] h-[42px] border border-gray-300 rounded-lg px-4 outline-none focus:border-[#2B87DA]"
                 />
             </div>
 
@@ -96,52 +77,31 @@ export default function LogAktivitasPage() {
                     
                     {/* ISI AKTIVITAS */}
                     <tbody>
-                        {filteredLog.length >
-                        0 ? (
+                        {filteredLog.length > 0 ? (
                             filteredLog.map(
-                                (
-                                    item,
-                                    index
-                                ) => (
-                                    <tr
-                                        key={
-                                            index
-                                        }
-                                        className="
-                                            border-b
-                                            border-gray-200
-                                        "
-                                    >
+                                (item,index) => (
+                                    <tr key={index} className="border-b border-gray-200">
                                         <td className="py-4">
                                             {index + 1}
                                         </td>
 
                                         <td>
-                                            {
-                                                item.nama
-                                            }
+                                            {item.nama}
                                         </td>
 
                                         <td>
-                                            {
-                                                item.tanggal
-                                            }
+                                            {item.tanggal}
                                         </td>
 
                                         <td>
-                                            {
-                                                item.aktivitas
-                                            }
+                                            {item.aktivitas}
                                         </td>
                                     </tr>
                                 )
                             )
                         ) : (
                             <tr>
-                                <td 
-                                    colSpan={4}
-                                    className="py-12 text-center text-gray-500"
-                                >
+                                <td colSpan={4} className="py-12 text-center text-gray-500">
                                     Belum ada
                                     aktivitas
                                 </td>

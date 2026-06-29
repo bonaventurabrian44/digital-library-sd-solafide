@@ -21,7 +21,7 @@
     "tipe": "keduanya",
     "id_kategori": [1],
     "jumlah": 1,
-    "file": "Laskar-Pelangi.pdf"
+    "file": "AI_Russell_Norvig.pdf"
   },
   {
     "id_buku": 3,
@@ -45,7 +45,7 @@
     "tipe": "ebook",
     "id_kategori": [2],
     "jumlah": 3,
-    "file": "Bumi Manusia.pdf"
+    "file": "AI_Russell_Norvig.pdf"
   },
   {
     "id_buku": 5,
@@ -69,7 +69,7 @@
     "tipe": "keduanya",
     "id_kategori": [4],
     "jumlah": 1,
-    "file": "Negeri 5 Menara.pdf"
+    "file": "AI_Russell_Norvig.pdf"
   },
   {
     "id_buku": 7,
@@ -93,7 +93,7 @@
     "tipe": "ebook",
     "id_kategori": [5],
     "jumlah": 1,
-    "file": "ayat2 cinta.pdf"
+    "file": "AI_Russell_Norvig.pdf"
   },
   {
     "id_buku": 9,
@@ -117,6 +117,6 @@
     "tipe": "keduanya",
     "id_kategori": [7],
     "jumlah": 4,
-    "file": "Sapiens.pdf"
+    "file": "AI_Russell_Norvig.pdf"
   }
 ]

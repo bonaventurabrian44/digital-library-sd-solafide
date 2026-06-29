@@ -46,8 +46,7 @@ export default async function CategoryDetailPage({
 
     // AMBIL DAFTAR BUKU BERDASARKAN KATEGORI YANG DIPILIH
     const books = booksData.filter(
-        (book) =>
-            book.id_kategori.includes(category.id_kategori)
+        (book) => book.id_kategori.includes(category.id_kategori)
     );
 
     return (

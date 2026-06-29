@@ -90,7 +90,6 @@ export default function LoginForm() {
                 <div className="relative">
                     <input
                         type={showPassword ? "text" : "password"}
-                        suppressHydrationWarning
                         className="w-full h-[50px] xl:h-[46px] rounded-xl bg-white px-4 pr-14 text-xl xl:text-xl outline-none border border-[#F80000]/20"
                     />
 

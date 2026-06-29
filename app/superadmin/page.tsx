@@ -183,10 +183,7 @@ export default function SuperAdminDashboard() {
                                 {bukuTerbaru.map(
                                     (book, index) => (
 
-                                        <tr
-                                            key={book.id_buku}
-                                            className="border-none"
-                                        >
+                                        <tr key={book.id_buku} className="border-none">
 
                                             <td className="py-2">
                                                 {index + 1}
@@ -247,27 +244,18 @@ export default function SuperAdminDashboard() {
                                 {kategoriDenganJumlah.map(
                                     (kategori, index) => (
 
-                                        <tr
-                                            key={
-                                                kategori.id_kategori
-                                            }
-                                            className="border-none"
-                                        >
+                                        <tr key={ kategori.id_kategori} className="border-none">
 
                                             <td className="py-2">
                                                 {index + 1}
                                             </td>
 
                                             <td>
-                                                {
-                                                    kategori.nama_kategori
-                                                }
+                                                {kategori.nama_kategori}
                                             </td>
 
                                             <td>
-                                                {
-                                                    kategori.jumlahBuku
-                                                }
+                                                {kategori.jumlahBuku}
                                             </td>
 
                                         </tr>
@@ -294,73 +282,73 @@ export default function SuperAdminDashboard() {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Hari Populer */}
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                        <h3 className="text-sm font-semibold mb-2">📅 Hari Peminjaman Terbanyak</h3>
-                        <ResponsiveContainer width="100%" height={200}>
-                        <BarChart data={stats.popularDays}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="hari" />
-                            <YAxis allowDecimals={false} />
-                            <Tooltip />
-                            <Bar dataKey="total" fill="#2B87DA" />
-                        </BarChart>
-                        </ResponsiveContainer>
-                    </div>
+                        {/* Hari Populer */}
+                        <div className="bg-gray-50 p-4 rounded-lg">
+                            <h3 className="text-sm font-semibold mb-2">📅 Hari Peminjaman Terbanyak</h3>
+                            <ResponsiveContainer width="100%" height={200}>
+                            <BarChart data={stats.popularDays}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="hari" />
+                                <YAxis allowDecimals={false} />
+                                <Tooltip />
+                                <Bar dataKey="total" fill="#2B87DA" />
+                            </BarChart>
+                            </ResponsiveContainer>
+                        </div>
 
-                    {/* Siswa Aktif */}
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                        <h3 className="text-sm font-semibold mb-2">👨‍🎓 Siswa Paling Sering Meminjam</h3>
-                        <ResponsiveContainer width="100%" height={200}>
-                        <BarChart data={stats.activeStudents} layout="vertical">
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis type="number" allowDecimals={false} />
-                            <YAxis type="category" dataKey="nama" width={70} />
-                            <Tooltip />
-                            <Bar dataKey="totalPinjam" fill="#3AC7B1" />
-                        </BarChart>
-                        </ResponsiveContainer>
-                    </div>
+                        {/* Siswa Aktif */}
+                        <div className="bg-gray-50 p-4 rounded-lg">
+                            <h3 className="text-sm font-semibold mb-2">👨‍🎓 Siswa Paling Sering Meminjam</h3>
+                            <ResponsiveContainer width="100%" height={200}>
+                            <BarChart data={stats.activeStudents} layout="vertical">
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis type="number" allowDecimals={false} />
+                                <YAxis type="category" dataKey="nama" width={70} />
+                                <Tooltip />
+                                <Bar dataKey="totalPinjam" fill="#3AC7B1" />
+                            </BarChart>
+                            </ResponsiveContainer>
+                        </div>
 
-                    {/* Buku Populer */}
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                        <h3 className="text-sm font-semibold mb-2">📚 Buku Paling Sering Dipinjam</h3>
-                        <ResponsiveContainer width="100%" height={200}>
-                        <BarChart data={stats.popularBooks} layout="vertical">
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis type="number" allowDecimals={false} />
-                            <YAxis type="category" dataKey="judul" width={70} />
-                            <Tooltip />
-                            <Bar dataKey="total" fill="#F59E0B" />
-                        </BarChart>
-                        </ResponsiveContainer>
-                    </div>
+                        {/* Buku Populer */}
+                        <div className="bg-gray-50 p-4 rounded-lg">
+                            <h3 className="text-sm font-semibold mb-2">📚 Buku Paling Sering Dipinjam</h3>
+                            <ResponsiveContainer width="100%" height={200}>
+                            <BarChart data={stats.popularBooks} layout="vertical">
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis type="number" allowDecimals={false} />
+                                <YAxis type="category" dataKey="judul" width={70} />
+                                <Tooltip />
+                                <Bar dataKey="total" fill="#F59E0B" />
+                            </BarChart>
+                            </ResponsiveContainer>
+                        </div>
 
-                    {/* Kategori Favorit */}
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                        <h3 className="text-sm font-semibold mb-2">🏷️ Kategori Buku Favorit</h3>
-                        <ResponsiveContainer width="100%" height={200}>
-                        <PieChart>
-                            <Pie
-                            data={stats.popularCategories}
-                            dataKey="total"
-                            nameKey="nama"
-                            cx="50%"
-                            cy="50%"
-                            outerRadius={70}
-                            label
-                            >
-                            {stats.popularCategories.map((entry, index) => (
-                                <Cell
-                                key={`cell-${index}`}
-                                fill={['#2B87DA', '#3AC7B1', '#F59E0B', '#EF4444', '#8B5CF6'][index % 5]}
-                                />
-                            ))}
-                            </Pie>
-                            <Tooltip />
-                        </PieChart>
-                        </ResponsiveContainer>
-                    </div>
+                        {/* Kategori Favorit */}
+                        <div className="bg-gray-50 p-4 rounded-lg">
+                            <h3 className="text-sm font-semibold mb-2">🏷️ Kategori Buku Favorit</h3>
+                            <ResponsiveContainer width="100%" height={200}>
+                            <PieChart>
+                                <Pie
+                                data={stats.popularCategories}
+                                dataKey="total"
+                                nameKey="nama"
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={70}
+                                label
+                                >
+                                {stats.popularCategories.map((entry, index) => (
+                                    <Cell
+                                    key={`cell-${index}`}
+                                    fill={['#2B87DA', '#3AC7B1', '#F59E0B', '#EF4444', '#8B5CF6'][index % 5]}
+                                    />
+                                ))}
+                                </Pie>
+                                <Tooltip />
+                            </PieChart>
+                            </ResponsiveContainer>
+                        </div>
                     </div>
                 )}
             </div>

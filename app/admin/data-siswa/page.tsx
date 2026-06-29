@@ -40,22 +40,12 @@ export default function DataSiswaPage() {
 
     return (
 
-        <div
-            className={`
-                ${inter.className}
-                bg-white
-                rounded-xl
-                p-8
-                shadow-sm
-            `}
-        >
+        <div className={`${inter.className} bg-white rounded-xl p-8 shadow-sm`}>
 
             {/* HEADER */}
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-6">
 
-                <h1
-                    className="text-2xl md:text-3xl font-bold text-center lg:text-left"
-                >
+                <h1 className="text-2xl md:text-3xl font-bold text-center lg:text-left">
                     Data Siswa
                 </h1>
                 
@@ -64,20 +54,8 @@ export default function DataSiswaPage() {
                     type="text"
                     placeholder="Cari Nama Siswa..."
                     value={search}
-                    onChange={(e) =>
-                        setSearch(e.target.value)
-                    }
-                    className="
-                        w-full
-                        sm:w-[350px]
-                        h-[42px]
-                        border
-                        border-gray-300
-                        rounded-lg
-                        px-4
-                        outline-none
-                        focus:border-[#2B87DA]
-                    "
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="w-full sm:w-[350px] h-[42px] border border-gray-300 rounded-lg px-4 outline-none focus:border-[#2B87DA]"
                 />
 
             </div>
@@ -124,10 +102,7 @@ export default function DataSiswaPage() {
                         {filteredSiswa.map(
                             (siswa, index) => (
 
-                                <tr
-                                    key={siswa.id_siswa}
-                                    className="border-b"
-                                >
+                                <tr key={siswa.id_siswa} className="border-b">
 
                                     <td className="py-5">
                                         {index + 1}
@@ -155,23 +130,14 @@ export default function DataSiswaPage() {
                                                 setStudents(
                                                     students.map((item) =>
                                                         item.id_siswa === siswa.id_siswa
-                                                            ? {
-                                                                ...item,
-                                                                status: e.target.value,
-                                                            }
+                                                            ? {...item, status: e.target.value,}
                                                             : item
                                                     )
                                                 );
 
                                             }}
-                                            className={`
-                                                px-3
-                                                py-2
-                                                rounded-lg
-                                                border
-                                                cursor-pointer
-                                                ${
-                                                    siswa.status === "aktif"
+                                            className={`px-3 py-2 rounded-lg border cursor-pointer
+                                                ${siswa.status === "aktif"
                                                         ? "bg-green-50 text-green-700 border-green-200"
                                                         : "bg-red-50 text-red-700 border-red-200"
                                                 }
@@ -194,9 +160,7 @@ export default function DataSiswaPage() {
                                         {/* DETAIL BUTTON */}
                                         <div className="flex justify-center">
                                             
-                                            <button
-                                            onClick={() => {
-                                                    setSelectedSiswa(siswa);
+                                            <button onClick={() => {setSelectedSiswa(siswa);
                                                     setShowDetail(true);
                                                 }}
                                                 className="bg-blue-500 text-white px-3 py-1 rounded text-sm cursor-pointer"
@@ -222,17 +186,11 @@ export default function DataSiswaPage() {
             {/* POP UP DETAIL */}
             {showDetail && selectedSiswa && (
 
-                <div
-                    className="fixed inset-0 bg-black/40 flex items-center justify-center z-50"
-                >
+                <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
 
-                    <div
-                        className="bg-white rounded-2xl p-6 md:p-8 w-[95%] max-w-[600px] shadow-xl"
-                    >
+                    <div className="bg-white rounded-2xl p-6 md:p-8 w-[95%] max-w-[600px] shadow-xl">
 
-                        <h2
-                            className="text-2xl font-bold mb-6"
-                        >
+                        <h2 className="text-2xl font-bold mb-6">
                             Detail Siswa
                         </h2>
 
@@ -255,9 +213,7 @@ export default function DataSiswaPage() {
                                 </p>
 
                                 <p className="font-semibold">
-                                    {
-                                        selectedSiswa.nama_siswa
-                                    }
+                                    {selectedSiswa.nama_siswa}
                                 </p>
 
                             </div>
@@ -269,9 +225,7 @@ export default function DataSiswaPage() {
                                 </p>
 
                                 <p className="font-semibold">
-                                    {
-                                        selectedSiswa.kelas
-                                    }
+                                    {selectedSiswa.kelas}
                                 </p>
 
                             </div>
@@ -283,9 +237,7 @@ export default function DataSiswaPage() {
                                 </p>
 
                                 <p className="font-semibold">
-                                    {
-                                        selectedSiswa.email_ortu
-                                    }
+                                    {selectedSiswa.email_ortu}
                                 </p>
 
                             </div>
@@ -297,9 +249,7 @@ export default function DataSiswaPage() {
                                 </p>
 
                                 <p className="font-semibold">
-                                    {
-                                        selectedSiswa.no_telp_ortu
-                                    }
+                                    {selectedSiswa.no_telp_ortu}
                                 </p>
 
                             </div>
@@ -308,18 +258,7 @@ export default function DataSiswaPage() {
 
                         <div className="flex justify-end mt-8">
 
-                            <button
-                                onClick={() => {
-
-                                    setShowDetail(
-                                        false
-                                    );
-
-                                    setSelectedSiswa(
-                                        null
-                                    );
-
-                                }}
+                            <button onClick={() => {setShowDetail(false);setSelectedSiswa(null);}}
                                 className="bg-red-500 text-white px-5 py-2 rounded-lg hover:bg-red-600 cursor-pointer"
                             >
                                 Tutup

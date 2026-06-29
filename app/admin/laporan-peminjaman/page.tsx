@@ -86,26 +86,9 @@ export default function LaporanPeminjamanPage() {
                 </h1>
 
                 {/* SEARCHBAR */}
-                <input
-                    type="text"
-                    placeholder="Cari Nama Siswa atau Judul Buku..."
-                    value={search}
-                    onChange={(e) =>
-                        setSearch(
-                            e.target.value
-                        )
-                    }
-                    className="
-                        w-full
-                        lg:w-[350px]
-                        h-[42px]
-                        border
-                        border-gray-300
-                        rounded-lg
-                        px-4
-                        outline-none
-                        focus:border-[#2B87DA]
-                    "
+                <input type="text" placeholder="Cari Nama Siswa atau Judul Buku..."
+                    value={search} onChange={(e) => setSearch(e.target.value)}
+                    className="w-full lg:w-[350px] h-[42px] border border-gray-300 rounded-lg px-4 outline-none focus:border-[#2B87DA]"
                 />
 
             </div>
@@ -153,14 +136,8 @@ export default function LaporanPeminjamanPage() {
                     <tbody>
 
                         {filteredLaporan.map(
-                            (
-                                item,
-                                index
-                            ) => (
-                                <tr
-                                    key={index}
-                                    className="border-b"
-                                >
+                            (item,index) => (
+                                <tr key={index} className="border-b">
                                     <td className="py-4">
                                         {index + 1}
                                     </td>
@@ -178,21 +155,15 @@ export default function LaporanPeminjamanPage() {
                                     </td>
 
                                     <td className="pr-6">
-                                        {
-                                            item.tanggalPinjam
-                                        }
+                                        {item.tanggalPinjam}
                                     </td>
 
                                     <td className="pr-6">
-                                        {
-                                            item.tanggalJatuhTempo
-                                        }
+                                        {item.tanggalJatuhTempo}
                                     </td>
 
                                     <td>
-                                        {
-                                            item.tanggalKembali
-                                        }
+                                        {item.tanggalKembali}
                                     </td>
 
                                 </tr>
