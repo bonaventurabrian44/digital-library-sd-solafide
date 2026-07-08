@@ -23,6 +23,7 @@ export default function CategoryCard({
                 items-center
                 py-6
                 shrink-0
+                hover:shadow-xl
             "
         >
 

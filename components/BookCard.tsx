@@ -23,6 +23,7 @@ export default function BookCard({
                 items-center
                 py-6
                 shrink-0
+                hover:shadow-xl
             "
         >
 

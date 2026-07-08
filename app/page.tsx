@@ -36,16 +36,6 @@ export default function Homepage() {
 
                 <div className={`${inter.className} max-w-7xl mx-auto py-6 md:py-8`}>
 
-                    {/* SEARCH */}
-
-                    <div className="flex justify-center md:justify-end mb-6">
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="w-full max-w-[280px] h-[40px] border border-gray-400 px-4 bg-white rounded-md"
-                    />
-                    </div>
-
                     {/* BOOK SECTION */}
 
                     <section className="bg-white border border-[#F3F3F3] overflow-hidden mb-8">
@@ -72,14 +62,20 @@ export default function Homepage() {
                         <HorizontalSlider>
 
                             {latestBooks.map((book) => (
-
-                                <BookCard
+                                <Link
                                     key={book.id_buku}
-                                    id={book.id_buku}
-                                    title={book.judul}
-                                    image={`/images/${book.cover}`}
-                                />
-
+                                    href={
+                                        book.tipe === "ebook"
+                                            ? `/ebook/${book.id_buku}`
+                                            : `/books/${book.id_buku}`
+                                    }
+                                >
+                                    <BookCard
+                                        id={book.id_buku}
+                                        title={book.judul}
+                                        image={`/images/${book.cover}`}
+                                    />
+                                </Link>
                             ))}
 
                         </HorizontalSlider>
