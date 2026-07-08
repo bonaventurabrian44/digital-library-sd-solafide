@@ -3,6 +3,7 @@ import Link from "next/link";
 import Footer from "../../components/Footer";
 import type { Metadata } from "next";
 import categoriesData from "../../data/kategori.json";
+import books from "../../data/buku.json";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -44,10 +45,17 @@ export default function CategoryPage() {
                     >
 
                         {categoriesData.map((category) => {
-                            const slug =
-                                category.nama_kategori
-                                    .toLowerCase()
-                                    .replace(/\s+/g, "-");
+
+                            const slug = category.nama_kategori
+                                .toLowerCase()
+                                .replace(/\s+/g, "-");
+
+                            // AMBIL BUKU PERTAMA PADA KATEGORI INI
+                            const firstBook = books
+                                .filter((book) =>
+                                    book.id_kategori.includes(category.id_kategori)
+                                )
+                                .sort((a, b) => a.id_buku - b.id_buku)[0];
 
                             return (
                                 // MENAMPILKAN BUKU BERDASARKAN KATEGORI YANG DIPILIH
@@ -70,25 +78,21 @@ export default function CategoryPage() {
                                         "
                                     >
 
-                                        {/* Placeholder Gambar */}
-                                        <div
+                                        <img
+                                            src={
+                                                firstBook
+                                                    ? `/images/${firstBook.cover}`
+                                                    : "/images/default-cover.png"
+                                            }
+                                            alt={category.nama_kategori}
                                             className="
                                                 w-full
                                                 h-[130px]
                                                 sm:h-[150px]
                                                 md:h-[180px]
-                                                bg-gray-300
-                                                flex
-                                                items-center
-                                                justify-center
-                                                text-gray-600
-                                                font-semibold
-                                                text-center
-                                                px-3
+                                                object-cover
                                             "
-                                        >
-                                            {category.nama_kategori}
-                                        </div>
+                                        />
 
                                         <div className="p-4">
 

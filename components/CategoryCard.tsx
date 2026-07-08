@@ -1,9 +1,11 @@
 interface CategoryCardProps {
+    id: number;
     title: string;
     image: string;
 }
 
 export default function CategoryCard({
+    id,
     title,
     image,
 }: CategoryCardProps) {

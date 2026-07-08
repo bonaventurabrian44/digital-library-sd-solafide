@@ -85,7 +85,7 @@ export default function BookDetailPage() {
                             <div className="flex justify-center lg:block flex-shrink-0">
 
                                 <img
-                                    src="/buku/ayahku-pahlawanku.png"
+                                    src={`/images/${book.cover}`}
                                     alt={book.judul}
                                     className="
                                         w-[180px]

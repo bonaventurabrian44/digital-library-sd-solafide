@@ -1,9 +1,11 @@
 interface BookCardProps {
+    id: number;
     title: string;
     image: string;
 }
 
 export default function BookCard({
+    id,
     title,
     image,
 }: BookCardProps) {

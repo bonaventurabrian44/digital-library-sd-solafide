@@ -4,6 +4,8 @@ import BookCard from "../components/BookCard";
 import CategoryCard from "../components/CategoryCard";
 import HorizontalSlider from "../components/HorizontalSlider";
 import Footer from "../components/Footer";
+import books from "../data/buku.json";
+import categories from "../data/kategori.json";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
@@ -17,6 +19,15 @@ export const metadata: Metadata = {
 
 // HOMEPAGE UNTUK USER YANG BELUM LOGIN
 export default function Homepage() {
+
+    // TAMPILKAN 10 BUKU TERBARU
+    const latestBooks = [...books]
+        .sort((a, b) => b.id_buku - a.id_buku)
+        .slice(0, 7);
+
+    // TAMPILKAN 10 KATEGORI
+    const categoryList = categories.slice(0, 7);
+
     return (
         <div className="min-h-screen flex flex-col bg-[#F3F3F3]">
 
@@ -60,40 +71,16 @@ export default function Homepage() {
 
                         <HorizontalSlider>
 
-                            <BookCard
-                            title="Kisah Rumah Pohon"
-                            image="/buku/kisah-rumah-pohon.png"
-                            />
+                            {latestBooks.map((book) => (
 
-                            <BookCard
-                            title="Mudah Bicara Bahasa Inggris"
-                            image="/buku/mudah-bicara-bahasa-inggris.jpg"
-                            />
+                                <BookCard
+                                    key={book.id_buku}
+                                    id={book.id_buku}
+                                    title={book.judul}
+                                    image={`/images/${book.cover}`}
+                                />
 
-                            <BookCard
-                            title="Matematika Dasar Jilid 1"
-                            image="/buku/matematika-dasar-jilid-1.webp"
-                            />
-
-                            <BookCard
-                            title="Ayahku Pahlawanku"
-                            image="/buku/ayahku-pahlawanku.png"
-                            />
-
-                            <BookCard
-                            title="Perjalanan Angsa Putih"
-                            image="/buku/perjalanan-angsa-putih.png"
-                            />
-
-                            <BookCard
-                            title="Perjalanan Angsa Putih"
-                            image="/buku/perjalanan-angsa-putih.png"
-                            />
-
-                            <BookCard
-                            title="Perjalanan Angsa Putih"
-                            image="/buku/perjalanan-angsa-putih.png"
-                            />
+                            ))}
 
                         </HorizontalSlider>
                     </div>
@@ -125,40 +112,32 @@ export default function Homepage() {
 
                         <HorizontalSlider>
 
-                            <CategoryCard
-                            title="Bahasa Inggris"
-                            image="/kategori/inggris.jpg"
-                            />
+                            {categoryList.map((category) => {
 
-                            <CategoryCard
-                            title="Ilmu Pengetahuan Alam"
-                            image="/kategori/ipa.png"
-                            />
+                                const firstBook = books
+                                    .filter((book) =>
+                                        book.id_kategori.includes(category.id_kategori)
+                                    )
+                                    .sort((a, b) =>
+                                        a.id_buku - b.id_buku
+                                    )[0];
 
-                            <CategoryCard
-                            title="Matematika"
-                            image="/kategori/matematika-2.png"
-                            />
+                                return (
 
-                            <CategoryCard
-                            title="Novel"
-                            image="/kategori/novel-2.png"
-                            />
+                                    <CategoryCard
+                                        key={category.id_kategori}
+                                        id={category.id_kategori}
+                                        title={category.nama_kategori}
+                                        image={
+                                            firstBook
+                                                ? `/images/${firstBook.cover}`
+                                                : "/images/default-book.png"
+                                        }
+                                    />
 
-                            <CategoryCard
-                            title="Sejarah"
-                            image="/kategori/sejarah-2.jpg"
-                            />
+                                );
 
-                            <CategoryCard
-                            title="Sejarah"
-                            image="/kategori/sejarah-2.jpg"
-                            />
-
-                            <CategoryCard
-                            title="Sejarah"
-                            image="/kategori/sejarah-2.jpg"
-                            />
+                            })}
 
                         </HorizontalSlider>
                     </div>

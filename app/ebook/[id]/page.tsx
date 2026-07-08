@@ -87,7 +87,7 @@ export default function EbookDetailPage() {
                             <div className="flex flex-col items-center lg:items-start flex-shrink-0">
 
                                 <img
-                                    src="/ebooks/dongeng-pangeran-katak.png"
+                                    src={`/images/${ebook.cover}`}
                                     alt={ebook.judul}
                                     className="
                                         w-[180px]

@@ -12,6 +12,7 @@ const inter = Inter({
 // MENAMBAH ATRIBUT FILE PADA DATA DUMMY -----------------------------------------------------------------
 type Book = {
     id_buku: number;
+    cover: string;
     judul: string;
     penulis: string;
     penerbit: string;
@@ -106,9 +107,33 @@ export default function DaftarBukuPage() {
     const [showTambah, setShowTambah] =
     useState(false);
 
+    const [selectedCover, setSelectedCover] = useState<{
+        file: File | null;
+        preview: string;
+    }>({
+        file: null,
+        preview: "/images/default-cover.png",
+    });
+
+    const handleCoverChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+
+        const file = e.target.files?.[0];
+
+        if (!file) return;
+
+        setSelectedCover({
+            file,
+            preview: URL.createObjectURL(file),
+        });
+
+    };
+
     // MENAMBAH ATRIBUT FILE PADA DATA BARU
     const defaultBook = {
         judul: "",
+        cover: "",
         penulis: "",
         penerbit: "",
         tahun_terbit: new Date().getFullYear(),
@@ -226,7 +251,17 @@ export default function DaftarBukuPage() {
                                     </td>
 
                                     <td>
-                                        <div className="w-16 h-20 bg-gray-200 rounded"/>
+                                        <img
+                                            src={`/images/${book.cover}`}
+                                            alt={book.judul}
+                                            className="
+                                                w-16
+                                                h-20
+                                                object-cover
+                                                rounded
+                                                border
+                                            "
+                                        />
                                     </td>
 
                                     <td>
@@ -334,39 +369,48 @@ export default function DaftarBukuPage() {
                                 {/* COVER */}
                                 <div className="flex flex-col items-center">
 
-                                    <div
+                                    <img
+                                        src={`/images/${selectedBook.cover}`}
+                                        alt={selectedBook.judul}
                                         className="
                                             w-full
                                             md:w-[220px]
                                             h-[320px]
-                                            bg-gray-200
+                                            object-cover
                                             rounded-xl
-                                            flex
-                                            items-center
-                                            justify-center
-                                            shrink-0
+                                            border
                                         "
-                                    >
-                                        Cover
-                                    </div>
+                                    />
 
                                     {isEditing && (
 
-                                        <button
-                                            className="
-                                                w-full
-                                                mt-4
-                                                bg-[#2B87DA]
-                                                text-white
-                                                px-4
-                                                py-2
-                                                rounded-lg
-                                                cursor-pointer
-                                                hover:bg-[#236fb4]
-                                            "
-                                        >
-                                            Ubah Cover
-                                        </button>
+                                        <div>
+
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                hidden
+                                                id="cover"
+                                            />
+
+                                            <label
+                                                htmlFor="cover"
+                                                className="
+                                                    w-full
+                                                    mt-4
+                                                    bg-[#2B87DA]
+                                                    text-white
+                                                    px-4
+                                                    py-2
+                                                    rounded-lg
+                                                    cursor-pointer
+                                                    text-center
+                                                    block
+                                                "
+                                            >
+                                                Ubah Cover
+                                            </label>
+                                        </div>
 
                                     )}
 
@@ -894,35 +938,44 @@ export default function DaftarBukuPage() {
                                 {/* COVER */}
                                 <div className="flex flex-col items-center">
 
-                                    <div
+                                    <img
+                                        src={selectedCover.preview}
+                                        alt="Preview Cover"
                                         className="
                                             w-[220px]
                                             h-[320px]
-                                            bg-gray-200
+                                            object-cover
                                             rounded-xl
-                                            flex
-                                            items-center
-                                            justify-center
+                                            border
                                         "
-                                    >
-                                        Cover
-                                    </div>
+                                    />
 
-                                    <button
+                                    <input
+                                        id="cover-upload"
+                                        type="file"
+                                        accept="image/*"
+                                        hidden
+                                        onChange={handleCoverChange}
+                                    />
+
+                                    <label
+                                        htmlFor="cover-upload"
                                         className="
-                                            w-full
                                             mt-4
+                                            w-full
                                             bg-[#2B87DA]
                                             text-white
                                             px-4
                                             py-2
                                             rounded-lg
-                                            hover:bg-[#236fb4]
                                             cursor-pointer
+                                            text-center
+                                            block
+                                            hover:bg-[#236fb4]
                                         "
                                     >
                                         Pilih Cover
-                                    </button>
+                                    </label>
 
                                 </div>
 
@@ -1278,7 +1331,16 @@ export default function DaftarBukuPage() {
                                         return;
                                     }
 
+                                    if (!selectedCover.file) {
+                                        alert("Silakan pilih cover buku.");
+                                        return;
+                                    }
+
                                     setShowTambah(false);
+                                    setSelectedCover({
+                                        file: null,
+                                        preview: "/images/default-cover.png",
+                                    });
 
                                 }}
                                     className="
@@ -1296,6 +1358,10 @@ export default function DaftarBukuPage() {
                                 <button
                                     onClick={() => {
                                         setShowTambah(false);
+                                        setSelectedCover({
+                                            file: null,
+                                            preview: "/images/default-cover.png",
+                                        });
                                         setNewBook(defaultBook);
                                         setPdfFile(null); {/*----------------------------------------------------------- */}
                                     }}

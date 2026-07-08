@@ -64,7 +64,7 @@ export default function EbookPage() {
                                 key={ebook.id_buku}
                                 id={ebook.id_buku}
                                 title={ebook.judul}
-                                image="/ebooks/dongeng-pangeran-katak.png"
+                                image={`/images/${ebook.cover}`}
                             />
                         ))}
 

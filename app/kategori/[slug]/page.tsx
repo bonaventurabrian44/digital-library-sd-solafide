@@ -117,19 +117,19 @@ export default async function CategoryDetailPage({
                             </div>
                         ) : (
                             books.map((book) =>
-                                book.tipe === "fisik" ? (
-                                    <LibraryBookCard
-                                        key={book.id_buku}
-                                        id={book.id_buku}
-                                        title={book.judul}
-                                        image="/buku/ayahku-pahlawanku.png"
-                                    />
-                                ) : (
+                                book.tipe === "ebook" ? (
                                     <EbookCard
                                         key={book.id_buku}
                                         id={book.id_buku}
                                         title={book.judul}
-                                        image="/ebooks/dongeng-pangeran-katak.png"
+                                        image={`/images/${book.cover}`}
+                                    />
+                                ) : (
+                                    <LibraryBookCard
+                                        key={book.id_buku}
+                                        id={book.id_buku}
+                                        title={book.judul}
+                                        image={`/images/${book.cover}`}
                                     />
                                 )
                             )

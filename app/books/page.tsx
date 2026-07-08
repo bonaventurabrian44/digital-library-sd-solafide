@@ -65,7 +65,7 @@ export default function BooksPage() {
                                 key={book.id_buku}
                                 id={book.id_buku}
                                 title={book.judul}
-                                image="/buku/ayahku-pahlawanku.png"
+                                image={`/images/${book.cover}`}
                             />
                         ))}
                     </div>

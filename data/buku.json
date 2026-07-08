@@ -2,6 +2,7 @@
   {
     "id_buku": 1,
     "judul": "Bumi",
+    "cover": "bumi.jpg",
     "penulis": "Tere Liye",
     "penerbit": "Gramedia Pustaka Utama",
     "tahun_terbit": 2020,
@@ -14,6 +15,7 @@
   {
     "id_buku": 2,
     "judul": "Laskar Pelangi",
+    "cover": "laskar-pelangi.jpg",
     "penulis": "Andrea Hirata",
     "penerbit": "Bentang Pustaka",
     "tahun_terbit": 2008,
@@ -26,6 +28,7 @@
   {
     "id_buku": 3,
     "judul": "Supernova: Akar",
+    "cover": "supernova-akar.avif",
     "penulis": "Dee Lestari",
     "penerbit": "Truedee Books",
     "tahun_terbit": 2016,
@@ -38,6 +41,7 @@
   {
     "id_buku": 4,
     "judul": "Bumi Manusia",
+    "cover": "bumi-manusia.jpg",
     "penulis": "Pramoedya Ananta Toer",
     "penerbit": "Lentera Dipantara",
     "tahun_terbit": 2005,
@@ -50,6 +54,7 @@
   {
     "id_buku": 5,
     "judul": "Koala Kumal",
+    "cover": "koala-kumal.jpg",
     "penulis": "Raditya Dika",
     "penerbit": "GagasMedia",
     "tahun_terbit": 2015,
@@ -62,6 +67,7 @@
   {
     "id_buku": 6,
     "judul": "Negeri 5 Menara",
+    "cover": "negeri-5-menara.jpg",
     "penulis": "Ahmad Fuadi",
     "penerbit": "Gramedia",
     "tahun_terbit": 2011,
@@ -74,6 +80,7 @@
   {
     "id_buku": 7,
     "judul": "Cantik Itu Luka",
+    "cover": "cantik-itu-luka.jpg",
     "penulis": "Eka Kurniawan",
     "penerbit": "Gramedia Pustaka Utama",
     "tahun_terbit": 2017,
@@ -86,6 +93,7 @@
   {
     "id_buku": 8,
     "judul": "Ayat-Ayat Cinta",
+    "cover": "ayat-ayat-cinta.png",
     "penulis": "Habiburrahman El Shirazy",
     "penerbit": "Republika",
     "tahun_terbit": 2007,
@@ -98,6 +106,7 @@
   {
     "id_buku": 9,
     "judul": "Mimpi Sejuta Dolar",
+    "cover": "mimpi-sejuta-dolar.jpg",
     "penulis": "Merry Riana",
     "penerbit": "Gramedia",
     "tahun_terbit": 2013,
@@ -110,6 +119,7 @@
   {
     "id_buku": 10,
     "judul": "Sapiens",
+    "cover": "sapiens.jpg",
     "penulis": "Yuval Noah Harari",
     "penerbit": "Harvill Secker",
     "tahun_terbit": 2018,

@@ -75,7 +75,7 @@ export default function ReadEbookPage() {
 
                         {/* COVER */}
                         <img
-                            src="/ebooks/dongeng-pangeran-katak.png"
+                            src={`/images/${ebook.cover}`}
                             alt={ebook.judul}
                             className="w-32 h-44 object-cover rounded-xl border shadow-md"
                         />
