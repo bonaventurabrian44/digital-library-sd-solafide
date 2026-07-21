@@ -37,7 +37,7 @@ export default function AdminSidebar() {
         },
         {
             name: "Log Aktivitas",
-            href: "/admin/log-aktivitas",
+            href: "/admin/riwayat-aktivitas",
             icon: "/icons/restore.png"
         },
     ];

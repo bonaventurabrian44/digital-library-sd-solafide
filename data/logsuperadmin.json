@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "tanggal": "2026-07-21 08:00:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Bumi"
+    },
+    {
+        "id": 2,
+        "tanggal": "2026-07-21 08:01:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Laskar Pelangi"
+    },
+    {
+        "id": 3,
+        "tanggal": "2026-07-21 08:02:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Supernova: Akar"
+    },
+    {
+        "id": 4,
+        "tanggal": "2026-07-21 08:03:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Bumi Manusia"
+    },
+    {
+        "id": 5,
+        "tanggal": "2026-07-21 08:04:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Koala Kumal"
+    },
+    {
+        "id": 6,
+        "tanggal": "2026-07-21 08:05:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Negeri 5 Menara"
+    },
+    {
+        "id": 7,
+        "tanggal": "2026-07-21 08:06:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Cantik Itu Luka"
+    },
+    {
+        "id": 8,
+        "tanggal": "2026-07-21 08:07:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Ayat-Ayat Cinta"
+    },
+    {
+        "id": 9,
+        "tanggal": "2026-07-21 08:08:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Mimpi Sejuta Dolar"
+    },
+    {
+        "id": 10,
+        "tanggal": "2026-07-21 08:09:00",
+        "nama": "Superadmin",
+        "modul": "Daftar Buku",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan buku: Sapiens"
+    },
+    {
+        "id": 11,
+        "tanggal": "2026-07-21 08:10:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Dongeng"
+    },
+    {
+        "id": 12,
+        "tanggal": "2026-07-21 08:11:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Novel"
+    },
+    {
+        "id": 13,
+        "tanggal": "2026-07-21 08:12:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Komik"
+    },
+    {
+        "id": 14,
+        "tanggal": "2026-07-21 08:13:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Cerita Anak"
+    },
+    {
+        "id": 15,
+        "tanggal": "2026-07-21 08:14:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Agama"
+    },
+    {
+        "id": 16,
+        "tanggal": "2026-07-21 08:15:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Biografi"
+    },
+    {
+        "id": 17,
+        "tanggal": "2026-07-21 08:16:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Sejarah"
+    },
+    {
+        "id": 18,
+        "tanggal": "2026-07-21 08:17:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Sains"
+    },
+    {
+        "id": 19,
+        "tanggal": "2026-07-21 08:18:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Matematika"
+    },
+    {
+        "id": 20,
+        "tanggal": "2026-07-21 08:19:00",
+        "nama": "Superadmin",
+        "modul": "Kategori",
+        "aksi": "Tambah",
+        "aktivitas": "Menambahkan kategori: Bahasa Indonesia"
+    }
+]

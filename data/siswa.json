@@ -3,7 +3,7 @@
         "id_siswa": 1,
         "nis": "2025001",
         "nama_siswa": "Budi Santoso",
-        "kelas": "5",
+        "kelas": 5,
         "email_ortu": "budi.ortu@gmail.com",
         "no_telp_ortu": "081234567890",
         "status": "aktif"
@@ -12,7 +12,7 @@
         "id_siswa": 2,
         "nis": "2025002",
         "nama_siswa": "Siti Aminah",
-        "kelas": "4",
+        "kelas": 4,
         "email_ortu": "siti.ortu@gmail.com",
         "no_telp_ortu": "081234567891",
         "status": "aktif"
@@ -21,7 +21,7 @@
         "id_siswa": 3,
         "nis": "2025003",
         "nama_siswa": "Andi Saputra",
-        "kelas": "6",
+        "kelas": 6,
         "email_ortu": "andi.ortu@gmail.com",
         "no_telp_ortu": "081234567892",
         "status": "tidak aktif"

@@ -1,3 +1,4 @@
+// app/admin/log-aktivitas/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -8,53 +9,17 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-interface LaporanItem {
-    nis: string;
+interface LogItem {
+    id: number;
+    tanggal: string;
     nama: string;
-    judul: string;
-    tanggalPinjam: string;
-    tanggalJatuhTempo: string;
-    tanggalKembali: string;
+    modul: string;
+    aksi: string;
+    aktivitas: string;
 }
 
-interface DetailPeminjaman {
-    id_detail: number;
-    id_buku: number;
-    jumlah: number;
-    tanggal_kembali: string | null;
-    status: string;
-    denda: number;
-}
-
-interface Peminjaman {
-    id_pinjam: number;
-    id_siswa: number;
-    tanggal_pinjam: string;
-    tanggal_jatuh_tempo: string;
-    status: string;
-    detail: DetailPeminjaman[];
-}
-
-interface Siswa {
-    id_siswa: number;
-    nis: string;
-    nama_siswa: string;
-    kelas: number;
-    email_ortu: string;
-    no_telp_ortu: string;
-    status: string;
-}
-
-interface Buku {
-    id_buku: number;
-    judul: string;
-    penulis: string;
-    penerbit: string;
-    tahun_terbit: number;
-}
-
-export default function LaporanPeminjamanPage() {
-    const [laporanData, setLaporanData] = useState<LaporanItem[]>([]);
+export default function LogAktivitasPage() {
+    const [logList, setLogList] = useState<LogItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
@@ -64,55 +29,34 @@ export default function LaporanPeminjamanPage() {
     const loadData = () => {
         setLoading(true);
         try {
-            const peminjaman = bookServiceLocal.getAllPeminjaman();
-            const siswa = bookServiceLocal.getAllSiswa();
-            const books = bookServiceLocal.getAllBooks();
-
-            // Generate laporan dari data peminjaman
-            const data = peminjaman.flatMap((pinjam: Peminjaman) => {
-                const siswaData = siswa.find((s: Siswa) => s.id_siswa === pinjam.id_siswa);
-                return pinjam.detail.map((detail: DetailPeminjaman) => {
-                    const buku = books.find((b: Buku) => b.id_buku === detail.id_buku);
-                    return {
-                        nis: siswaData?.nis || "-",
-                        nama: siswaData?.nama_siswa || "-",
-                        judul: buku?.judul || "-",
-                        tanggalPinjam: pinjam.tanggal_pinjam || "-",
-                        tanggalJatuhTempo: pinjam.tanggal_jatuh_tempo || "-",
-                        tanggalKembali: detail.tanggal_kembali || "-",
-                    };
-                });
-            });
-            data.sort(
-                (a, b) =>
-                    new Date(b.tanggalPinjam).getTime() -
-                    new Date(a.tanggalPinjam).getTime()
-            );
-
-            setLaporanData(data);
+            const logs = bookServiceLocal.getAllAdminLogs();
+            // Urutkan dari yang terbaru
+            logs.sort((a, b) => b.id - a.id);
+            setLogList(logs);
         } catch (err) {
-            console.error("Error loading laporan:", err);
-            toast.error("Gagal memuat data laporan. Silakan refresh halaman.");
+            toast.error("Error loading logs:");
         } finally {
             setLoading(false);
         }
     };
-    
 
     useEffect(() => {
         loadData();
     }, []);
 
-    // Filter laporan berdasarkan search
-    const filteredLaporan = laporanData.filter(
+    // Filter log berdasarkan search
+    const filteredLog = logList.filter(
         (item) =>
             item.nama.toLowerCase().includes(search.toLowerCase()) ||
-            item.judul.toLowerCase().includes(search.toLowerCase())
+            item.modul.toLowerCase().includes(search.toLowerCase()) ||
+            item.aksi.toLowerCase().includes(search.toLowerCase()) ||
+            item.aktivitas.toLowerCase().includes(search.toLowerCase())
     );
 
-    const totalPages = Math.ceil(filteredLaporan.length / itemsPerPage);
+    // PAGINATION
+    const totalPages = Math.ceil(filteredLog.length / itemsPerPage);
 
-    const paginatedLaporan = filteredLaporan.slice(
+    const paginatedLog = filteredLog.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
@@ -150,58 +94,52 @@ export default function LaporanPeminjamanPage() {
 
     return (
         <div className={`${inter.className} bg-white rounded-xl p-4 md:p-6 lg:p-8 shadow-sm`}>
-            {/* Header + Search */}
+            {/* HEADER */}
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-8">
                 <h1 className="text-2xl md:text-3xl font-bold text-center lg:text-left">
-                    Laporan Peminjaman
+                    Log Aktivitas
                 </h1>
 
                 <input
                     type="text"
-                    placeholder="Cari Nama Siswa atau Judul Buku..."
+                    placeholder="Cari Nama atau Aktivitas..."
                     value={search}
-                    onChange={(e) => {
-                        setSearch(e.target.value);
-                        setCurrentPage(1);
-                    }}
+                    onChange={(e) => {setSearch(e.target.value); setCurrentPage(1);}}
                     className="w-full lg:w-[350px] h-[42px] border border-gray-300 rounded-lg px-4 outline-none focus:border-[#2B87DA]"
                 />
             </div>
 
-            {/* Tabel */}
             <div className="overflow-x-auto rounded-lg">
                 {loading ? (
                     <div className="text-center py-8">Memuat data...</div>
                 ) : (
                     <table className="w-full">
                         <thead>
-                            <tr className="border-b">
-                                <th className="py-4 text-left pr-6">No</th>
-                                <th className="text-left pr-6">NIS</th>
-                                <th className="text-left pr-6">Nama Siswa</th>
-                                <th className="text-left pr-6">Judul Buku</th>
-                                <th className="text-left pr-6">Tanggal Pinjam</th>
-                                <th className="text-left pr-6">Tanggal Jatuh Tempo</th>
-                                <th className="text-left pr-6">Tanggal Dikembalikan</th>
+                            <tr className="border-b border-gray-300">
+                                <th className="py-4 text-left font-semibold">No</th>
+                                <th className="text-left font-semibold">Tanggal</th>
+                                <th className="text-left font-semibold">Pengguna</th>
+                                <th className="text-left font-semibold">Modul</th>
+                                <th className="text-left font-semibold">Aksi</th>
+                                <th className="text-left font-semibold">Aktivitas</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {filteredLaporan.length > 0 ? (
-                                paginatedLaporan.map((item, index) => (
-                                    <tr key={index} className="border-b">
+                            {filteredLog.length > 0 ? (
+                                paginatedLog.map((item, index) => (
+                                    <tr key={item.id} className="border-b border-gray-200">
                                         <td className="py-4">{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                                        <td className="pr-6">{item.nis}</td>
-                                        <td className="pr-6">{item.nama}</td>
-                                        <td className="pr-6">{item.judul}</td>
-                                        <td className="pr-6">{item.tanggalPinjam}</td>
-                                        <td className="pr-6">{item.tanggalJatuhTempo}</td>
-                                        <td>{item.tanggalKembali}</td>
+                                        <td>{item.tanggal}</td>
+                                        <td>{item.nama}</td>
+                                        <td>{item.modul}</td>
+                                        <td>{item.aksi}</td>
+                                        <td>{item.aktivitas}</td>
                                     </tr>
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan={7} className="py-12 text-center text-gray-500">
-                                        {search ? "Data tidak ditemukan" : "Belum ada data peminjaman"}
+                                    <td colSpan={6} className="py-12 text-center text-gray-500">
+                                        {search ? "Data tidak ditemukan" : "Belum ada aktivitas"}
                                     </td>
                                 </tr>
                             )}
@@ -209,6 +147,7 @@ export default function LaporanPeminjamanPage() {
                     </table>
                 )}
             </div>
+            
             {/* PAGINATION */}
             {!loading && totalPages > 1 && (
                 <div className="flex justify-center items-center gap-2 mt-6">

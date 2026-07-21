@@ -17,21 +17,9 @@ export const metadata: Metadata = {
 export default function CategoryPage() {
     return (
         <div className="flex flex-col min-h-screen bg-[#F3F3F3]">
-
             <Navbar />
-
             <main className="flex-1">
-
-                <div
-                    className={`
-                        ${inter.className}
-                        w-[95%]
-                        md:w-[92%]
-                        lg:w-[86%]
-                        mx-auto
-                        py-6
-                        md:py-8
-                    `}
+                <div className={`${inter.className} w-[95%] md:w-[92%] lg:w-[86%] mx-auto py-6 md:py-8`}
                 >
 
                     <h1
@@ -63,35 +51,18 @@ export default function CategoryPage() {
                                     key={category.id_kategori}
                                     href={`/kategori/${slug}`}
                                 >
-                                    <div
-                                        className="
-                                            bg-white
-                                            rounded-xl
-                                            shadow-sm
-                                            overflow-hidden
-                                            cursor-pointer
-                                            h-full
-                                            transition-all
-                                            duration-300
-                                            hover:shadow-xl
-                                            hover:-translate-y-1
-                                        "
+                                    <div className="bg-white rounded-xl shadow-sm overflow-hidden cursor-pointer h-full transition-all
+                                            duration-300hover:shadow-xl hover:-translate-y-1"
                                     >
 
                                         <img
                                             src={
                                                 firstBook
-                                                    ? `/images/${firstBook.cover}`
-                                                    : "/images/default-cover.png"
+                                                    ? `${firstBook.cover}`
+                                                    : "/images/default-image.jpg"
                                             }
                                             alt={category.nama_kategori}
-                                            className="
-                                                w-full
-                                                h-[130px]
-                                                sm:h-[150px]
-                                                md:h-[180px]
-                                                object-cover
-                                            "
+                                            className="w-full h-[130px] sm:h-[150px] md:h-[180px] object-cover"
                                         />
 
                                         <div className="p-4">

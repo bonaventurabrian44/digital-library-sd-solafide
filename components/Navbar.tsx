@@ -3,12 +3,7 @@
 import { useState } from "react";
 import { Menu, X} from "lucide-react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { Inter } from "next/font/google";
 import Link from "next/link";
-
-const inter = Inter({
-    subsets: ["latin"],
-});
 
 export default function Navbar() {
 
@@ -37,10 +32,10 @@ export default function Navbar() {
     
     return (
         <nav
-            className={`
-                ${inter.className} relative w-full min-h-[60px] bg-gradient-to-b
+            className="
+                relative w-full min-h-[60px] bg-gradient-to-b
                 from-[#2B87DA] to-[#33D0B2] shadow-md px-4 md:px-10
-            `}
+            "
         >
             <div
                 className="h-[60px] flex items-center justify-between"

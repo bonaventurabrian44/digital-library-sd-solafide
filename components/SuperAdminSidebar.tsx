@@ -30,6 +30,11 @@ export default function SuperAdminSidebar() {
             href: "/superadmin/statistik",
             icon: "/icons/bar-chart.png"
         },
+        {
+            name: "Riwayat Aktivitas",
+            href: "/superadmin/riwayat-aktivitas",
+            icon: "/icons/restore.png"
+        },
     ];
 
     return (

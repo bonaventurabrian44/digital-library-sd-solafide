@@ -6,6 +6,7 @@ import LibraryBookCard from "../../components/LibraryBookCard";
 import Footer from "../../components/Footer";
 import books from "../../data/buku.json";
 import { Inter } from "next/font/google";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -16,6 +17,8 @@ export default function BooksPage() {
     
     // SEARCH
     const [search, setSearch] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 25;
 
     // FILTER BUKU FISIK
     const filteredBooks = books.filter((book) => {
@@ -30,6 +33,45 @@ export default function BooksPage() {
 
         return isPhysical && matchesSearch;
     });
+
+    // PAGINATION
+    const totalPages = Math.ceil(filteredBooks.length / itemsPerPage);
+
+    const paginatedBooks = filteredBooks.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
+    const getPagination = () => {
+        const pages: (number | "...")[] = [];
+
+        if (totalPages <= 5) {
+            for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
+            }
+        } else {
+            pages.push(1);
+
+            if (currentPage > 3) {
+                pages.push("...");
+            }
+
+            const start = Math.max(2, currentPage - 1);
+            const end = Math.min(totalPages - 1, currentPage + 1);
+
+            for (let i = start; i <= end; i++) {
+                pages.push(i);
+            }
+
+            if (currentPage < totalPages - 2) {
+                pages.push("...");
+            }
+
+            pages.push(totalPages);
+        }
+
+        return pages;
+    };
 
     return (
         <div className={`${inter.className} flex flex-col min-h-screen bg-[#F3F3F3]`}>
@@ -51,17 +93,11 @@ export default function BooksPage() {
                             type="text"
                             placeholder="Cari Buku..."
                             value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            className="
-                                w-full
-                                sm:w-[280px]
-                                h-[42px]
-                                bg-white
-                                border
-                                border-gray-300
-                                px-4
-                                rounded-lg
-                            "
+                            onChange={(e) => {
+                                setSearch(e.target.value);
+                                setCurrentPage(1);
+                            }}
+                            className="w-full sm:w-[280px] h-[42px] bg-white border border-gray-300 px-4 rounded-lg"
                         />
 
                     </div>
@@ -70,41 +106,75 @@ export default function BooksPage() {
                     <div
                         className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"
                     >
-                        {filteredBooks.map((book) => (
+                        {paginatedBooks.map((book) => (
                             <LibraryBookCard
                                 key={book.id_buku}
                                 id={book.id_buku}
                                 title={book.judul}
-                                image={`/images/${book.cover}`}
+                                image={book.cover}
                             />
                         ))}
                     </div>
+                    {totalPages > 1 && (
+                        <div className="flex justify-center items-center gap-2 mt-10">
+                            <button
+                                onClick={() =>
+                                    setCurrentPage((prev) => Math.max(prev - 1, 1))
+                                }
+                                disabled={currentPage === 1}
+                                className={`w-7 h-7 rounded-full flex items-center justify-center border transition ${
+                                    currentPage === 1
+                                        ? "bg-gray-200 cursor-not-allowed"
+                                        : "hover:bg-gray-100"
+                                }`}
+                            >
+                                <ChevronLeft size={18} />
+                            </button>
 
-                    {/* PAGINATION */}
-                    <div className="flex flex-wrap justify-center mt-10 gap-2">
+                            {getPagination().map((page, index) => {
+                                if (page === "...") {
+                                    return (
+                                        <span
+                                            key={`dots-${index}`}
+                                            className="px-3 py-2 text-gray-500"
+                                        >
+                                            ...
+                                        </span>
+                                    );
+                                }
 
-                        <button className="w-10 h-10 bg-white border rounded">
-                            {"<"}
-                        </button>
+                                return (
+                                    <button
+                                        key={page}
+                                        onClick={() => setCurrentPage(page as number)}
+                                        className={`w-8 h-8 rounded-lg flex items-center justify-center border transition ${
+                                            currentPage === page
+                                                ? "bg-[#2B87DA] text-white border-[#2B87DA]"
+                                                : "hover:bg-gray-100"
+                                        }`}
+                                    >
+                                        {page}
+                                    </button>
+                                );
+                            })}
 
-                        <button className="w-10 h-10 bg-[#2B87DA] text-white rounded">
-                            1
-                        </button>
-
-                        <button className="w-10 h-10 bg-white border rounded">
-                            2
-                        </button>
-
-                        <button className="w-10 h-10 bg-white border rounded">
-                            3
-                        </button>
-
-                        <button className="w-10 h-10 bg-white border rounded">
-                            {">"}
-                        </button>
-
-                    </div>
-
+                            <button
+                                onClick={() =>
+                                    setCurrentPage((prev) =>
+                                        Math.min(prev + 1, totalPages)
+                                    )
+                                }
+                                disabled={currentPage === totalPages}
+                                className={`w-7 h-7 rounded-full flex items-center justify-center border transition ${
+                                    currentPage === totalPages
+                                        ? "bg-gray-200 cursor-not-allowed"
+                                        : "hover:bg-gray-100"
+                                }`}
+                            >
+                                <ChevronRight size={18} />
+                            </button>
+                        </div>
+                    )}
                 </div>
             </main>
 

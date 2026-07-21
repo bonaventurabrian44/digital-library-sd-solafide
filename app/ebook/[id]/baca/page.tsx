@@ -3,6 +3,7 @@
 import Navbar from "../../../../components/Navbar";
 import { useParams, useRouter } from "next/navigation";
 import books from "../../../../data/buku.json";
+import ebooks from "../../../../data/ebook.json";
 import categories from "../../../../data/kategori.json";
 import { useRef } from "react";
 import { Inter } from "next/font/google";
@@ -18,13 +19,18 @@ export default function ReadEbookPage() {
 
     const viewerRef = useRef<HTMLDivElement>(null);
 
+    // AMBIL DATA BOOK
+    const book = books.find(
+        (item) => item.id_buku === Number(params.id)
+    );
+
     // AMBIL DATA E-BOOK
-    const ebook = books.find(
+    const ebook = ebooks.find(
         (item) => item.id_buku === Number(params.id)
     );
 
     // JIKA TIDAK DITEMUKAN
-    if (!ebook) {
+    if (!book || !ebook) {
         return (
             <div className="min-h-screen bg-[#F3F3F3]">
                 <Navbar />
@@ -42,9 +48,9 @@ export default function ReadEbookPage() {
     }
 
     // AMBIL DATA KATEGORI
-    const category = categories.filter(
+    const booksCategories = categories.filter(
         (item) =>
-            ebook.id_kategori.includes(item.id_kategori)
+            book.id_kategori.includes(item.id_kategori)
     );
 
     return (
@@ -75,8 +81,8 @@ export default function ReadEbookPage() {
 
                         {/* COVER */}
                         <img
-                            src={`/images/${ebook.cover}`}
-                            alt={ebook.judul}
+                            src={book.cover}
+                            alt={book.judul}
                             className="w-32 h-44 object-cover rounded-xl border shadow-md"
                         />
 
@@ -118,22 +124,22 @@ export default function ReadEbookPage() {
 
                             {/* JUDUL */}
                             <h1 className="text-2xl md:text-3xl font-bold mt-4">
-                                {ebook.judul}
+                                {book.judul}
                             </h1>
 
                             {/* DESKRIPSI */}
                             <p className="mt-2 text-gray-600">
-                                {ebook.penulis}
+                                {book.penulis}
                                 &nbsp; • &nbsp;
-                                {ebook.penerbit}
+                                {book.penerbit}
                                 &nbsp; • &nbsp;
-                                {ebook.tahun_terbit}
+                                {book.tahun_terbit}
                             </p>
 
                             {/* BADGE */}
                             <div className="mt-4 flex flex-wrap gap-2">
 
-                                {category.map(
+                                {booksCategories.map(
                                     (item) => (
 
                                         <span
@@ -171,8 +177,8 @@ export default function ReadEbookPage() {
                     >
 
                         <iframe
-                            src={`/pdfjs/web/viewer.html?file=/pdf/${ebook.file}`}
-                            title={ebook.judul}
+                            src={`/pdfjs/web/viewer.html?file=/pdf/${ebook.file_path}`}
+                            title={book.judul}
                             allowFullScreen
                             className="w-full h-[90vh] border-0"
                         />

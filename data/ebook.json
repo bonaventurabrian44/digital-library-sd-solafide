@@ -1,0 +1,32 @@
+[
+    {
+    "id_ebook": 1,
+    "id_buku": 2,
+    "file_path": "AI_Russell_Norvig.pdf",
+    "format": "pdf"
+    },
+    {
+    "id_ebook": 2,
+    "id_buku": 4,
+    "file_path": "AI_Russell_Norvig.pdf",
+    "format": "pdf"
+    },
+    {
+    "id_ebook": 3,
+    "id_buku": 6,
+    "file_path": "AI_Russell_Norvig.pdf",
+    "format": "pdf"
+    },
+    {
+    "id_ebook": 4,
+    "id_buku": 8,
+    "file_path": "AI_Russell_Norvig.pdf",
+    "format": "pdf"
+    },
+    {
+    "id_ebook": 5,
+    "id_buku": 10,
+    "file_path": "AI_Russell_Norvig.pdf",
+    "format": "pdf"
+    }
+]

@@ -73,7 +73,7 @@ export default function Homepage() {
                                     <BookCard
                                         id={book.id_buku}
                                         title={book.judul}
-                                        image={`/images/${book.cover}`}
+                                        image={book.cover}
                                     />
                                 </Link>
                             ))}
@@ -126,8 +126,8 @@ export default function Homepage() {
                                         title={category.nama_kategori}
                                         image={
                                             firstBook
-                                                ? `/images/${firstBook.cover}`
-                                                : "/images/default-book.png"
+                                                ? firstBook.cover
+                                                : "/images/default-image.jpg"
                                         }
                                     />
 

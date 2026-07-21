@@ -58,20 +58,7 @@ export default function EbookDetailPage() {
                     {/* BUTTON KEMBALI */}
                     <button
                         onClick={() => router.back()}
-                        className="
-                            mb-6
-                            px-4
-                            md:px-5
-                            py-2
-                            text-sm
-                            md:text-base
-                            bg-[#2B87DA]
-                            text-white
-                            rounded-lg
-                            hover:bg-[#236fb4]
-                            transition-all
-                            cursor-pointer
-                        "
+                        className="mb-6 px-4 md:px-5 py-2 text-sm md:text-base bg-[#2B87DA] text-white rounded-lg hover:bg-[#236fb4] transition-all cursor-pointer"
                     >
                         ← Kembali
                     </button>
@@ -87,39 +74,15 @@ export default function EbookDetailPage() {
                             <div className="flex flex-col items-center lg:items-start flex-shrink-0">
 
                                 <img
-                                    src={`/images/${ebook.cover}`}
+                                    src={ebook.cover}
                                     alt={ebook.judul}
-                                    className="
-                                        w-[180px]
-                                        h-[260px]
-                                        sm:w-[220px]
-                                        sm:h-[320px]
-                                        md:w-[260px]
-                                        md:h-[370px]
-                                        object-cover
-                                        rounded-lg
-                                        border
-                                        border-gray-200
-                                    "
+                                    className="w-[180px] h-[260px] sm:w-[220px] sm:h-[320px] md:w-[260px] md:h-[370px] object-cover rounded-lg border border-gray-200"
                                 />
 
                                 {/* BACA E-BOOK BUTTON */}
                                 <Link
                                     href={`/ebook/${ebook.id_buku}/baca`}
-                                    className="
-                                        mt-4
-                                        w-full
-                                        max-w-[260px]
-                                        text-center
-                                        px-6
-                                        py-3
-                                        bg-[#2B87DA]
-                                        text-white
-                                        rounded-lg
-                                        font-medium
-                                        transition-all
-                                        hover:bg-[#236fb4]
-                                    "
+                                    className="mt-4 w-full max-w-[260px] text-center px-6 py-3 bg-[#2B87DA] text-white rounded-lg font-medium transition-all hover:bg-[#236fb4]"
                                 >
                                     Baca E-Book
                                 </Link>

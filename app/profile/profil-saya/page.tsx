@@ -16,28 +16,7 @@ export default function ProfilSayaPage() {
             <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center lg:text-left">
                 Profil Saya
             </h1>
-
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
-                {/* FOTO */}
-                <div className="flex flex-col items-center w-[180px] shrink-0">
-                    <div className="w-[140px] h-[140px] md:w-[180px] md:h-[180px] bg-gray-200 border border-gray-300
-                            rounded-lg flex items-center justify-center text-gray-500 font-medium">
-                        Belum Ada Foto
-                    </div>
-
-                    <button onClick={() => setShowEditModal(true)}
-                        className="mt-6 w-full bg-[#2B87DA] text-white px-5 py-2 rounded-lg hover:bg-[#236fb4]
-                            cursor-pointer flex items-center justify-center gap-2"
-                    >
-                        <img
-                            src="/icons/edit.png"
-                            alt="Edit"
-                            className="w-4 h-4 invert"
-                        />
-                        Edit Profil
-                    </button>
-                </div>
-
                 {/* DATA DIRI */}
                 <div className="flex-1 w-full text-center lg:text-left">
 
@@ -81,6 +60,18 @@ export default function ProfilSayaPage() {
                         </p>
                     </div>
 
+                    <button
+                        onClick={() => setShowEditModal(true)}
+                        className="bg-[#2B87DA] text-white px-5 py-2 rounded-lg hover:bg-[#236fb4] cursor-pointer flex items-center gap-2"
+                    >
+                        <img
+                            src="/icons/edit.png"
+                            alt="Edit"
+                            className="w-4 h-4 invert"
+                        />
+                        Edit Nama
+                    </button>
+
                 </div>
             </div>
 
@@ -90,42 +81,6 @@ export default function ProfilSayaPage() {
                         <h2 className=" text-xl md:text-2xl font-bold mb-6 text-center md:text-left">
                             Edit Profil
                         </h2>
-
-                        {/* FOTO PROFIL */}
-                        <div className="mb-8">
-
-                            <label className="block mb-2 font-medium">
-                                Foto Profil
-                            </label>
-
-                            <label
-                                htmlFor="profileImage"
-                                className="w-full h-[140px] md:h-[180px] border-2 border-dashed border-gray-300 rounded-xl
-                                    flex flex-col items-center justify-center cursor-pointer hover:border-[#2B87DA]
-                                    hover:bg-blue-50 transition"
-                            >
-                                <span className="text-5xl text-gray-400 mb-2">
-                                    +
-                                </span>
-
-                                <p className="text-sm md:text-base text-gray-600 font-medium text-center">
-                                    Klik untuk Upload Foto
-                                </p>
-
-                                <p className="text-xs md:text-sm text-gray-400 mt-1 text-center">
-                                    PNG, JPG, JPEG
-                                </p>
-                            </label>
-
-                            <input
-                                id="profileImage"
-                                type="file"
-                                accept="image/*"
-                                className="hidden"
-                            />
-
-                        </div>
-
                         {/* NAMA */}
                         <div className="mb-4">
                             <label className="font-medium">
@@ -140,6 +95,20 @@ export default function ProfilSayaPage() {
                             />
                         </div>
 
+                        {/*KELAS */}
+                        <div className="mb-5">
+                            <label className="font-medium">
+                                Kelas
+                            </label>
+
+                            <input
+                                type="text"
+                                value="5"
+                                readOnly
+                                className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
+                            />
+                        </div>
+
                         {/* EMAIL */}
                         <div className="mb-5">
                             <label className="font-medium">
@@ -148,8 +117,9 @@ export default function ProfilSayaPage() {
 
                             <input
                                 type="email"
-                                defaultValue="budi.ortu@gmail.com"
-                                className="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none focus:border-[#2B87DA]"
+                                value="budi.ortu@gmail.com"
+                                readOnly
+                                className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
                             />
                         </div>
 
@@ -161,9 +131,9 @@ export default function ProfilSayaPage() {
 
                             <input
                                 type="text"
-                                defaultValue="081234567890"
-                                className="w-full border border-gray-300 rounded-lg px-4 py-2
-                                    outline-none focus:border-[#2B87DA]"
+                                value="081234567890"
+                                readOnly
+                                className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
                             />
                         </div>
 
@@ -174,7 +144,7 @@ export default function ProfilSayaPage() {
                             </button>
 
                             <button onClick={() => setShowEditModal(false)}
-                                className="w-full sm:w-autobg-red-500 text-white px-5 py-2 rounded-lg cursor-pointer hover:bg-red-600">
+                                className="w-full sm:w-auto bg-red-500 text-white px-5 py-2 rounded-lg cursor-pointer hover:bg-red-600">
                                 Batal
                             </button>
                         </div>
