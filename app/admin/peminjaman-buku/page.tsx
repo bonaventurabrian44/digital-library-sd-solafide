@@ -42,6 +42,7 @@ interface Buku {
     penulis: string;
     penerbit: string;
     tahun_terbit: number;
+    tipe: string;
 }
 
 export default function PeminjamanBukuPage() {
@@ -551,7 +552,7 @@ export default function PeminjamanBukuPage() {
                                     className="w-full mt-2 border rounded-lg px-4 py-2"
                                 >
                                     <option value="">Pilih Siswa</option>
-                                    {siswaList.map((siswa) => (
+                                    {siswaList.filter((siswa) => siswa.status === "aktif").map((siswa) => (
                                         <option key={siswa.id_siswa} value={siswa.id_siswa}>
                                             {siswa.nama_siswa}
                                         </option>
@@ -632,7 +633,7 @@ export default function PeminjamanBukuPage() {
                                             className="w-full border rounded-lg px-4 py-2"
                                         >
                                             <option value="">Pilih Buku</option>
-                                            {bukuList.map((buku) => (
+                                            {bukuList.filter((buku) => buku.tipe === "fisik" || buku.tipe === "keduanya").map((buku) => (
                                                 <option key={buku.id_buku} value={buku.id_buku}>
                                                     {buku.judul}
                                                 </option>

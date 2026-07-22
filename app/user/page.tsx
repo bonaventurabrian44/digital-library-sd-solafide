@@ -15,6 +15,40 @@ export const metadata: Metadata = {
 };
 
 export default function UserPage() {
+    const firstName = "Budi";
+
+    const recommendedBooks = [
+        {
+            id: 1,
+            judul: "Bumi",
+            kategori: "Dongeng",
+            cover: "/images/bumi.jpg",
+        },
+        {
+            id: 2,
+            judul: "Supernova: Akar",
+            kategori: "Dongeng",
+            cover: "/images/supernova-akar.avif",
+        },
+        {
+            id: 3,
+            judul: "Laskar Pelangi",
+            kategori: "Dongeng",
+            cover: "/images/laskar-pelangi.jpg",
+        },
+        {
+            id: 4,
+            judul: "Koala Kumal",
+            kategori: "Komik",
+            cover: "/images/koala-kumal.jpg",
+        },
+        {
+            id: 5,
+            judul: "Negeri 5 Menara",
+            kategori: "Cerita Anak",
+            cover: "/images/negeri-5-menara.jpg",
+        },
+    ];
     return (
         <div className="flex flex-col min-h-screen bg-[#F3F3F3]">
             <Navbar />
@@ -25,7 +59,7 @@ export default function UserPage() {
                     {/* Welcome */}
                     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold  mb-6  md:mb-8">
                     SELAMAT DATANG,{" "}
-                    <span className="text-[#2B87DA]">USER!</span>
+                    <span className="text-[#2B87DA]">{firstName.toUpperCase()}!</span>
                     </h1>
 
                     <div className="w-full h-[1px] bg-black my-6"></div>
@@ -74,14 +108,17 @@ export default function UserPage() {
 
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-
-                        <RecommendationCard />
-                        <RecommendationCard />
-                        <RecommendationCard />
-                        <RecommendationCard />
-                        <RecommendationCard />
-
+                    {/* MENAMPILKAN 5 REKOMENDASI BUKU */}
+                    <div className="flex flex-wrap justify-center gap-6">
+                        {recommendedBooks.slice(0, 5).map((book) => (
+                            <RecommendationCard
+                                key={book.id}
+                                id={book.id}
+                                title={book.judul}
+                                category={book.kategori}
+                                image={book.cover}
+                            />
+                        ))}
                     </div>
 
                     </div>
